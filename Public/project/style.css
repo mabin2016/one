@@ -1,0 +1,197 @@
+
+/*
+   CSS style sheet for mcmWeb.
+*/
+
+
+
+BODY {
+  margin: 0px;
+  padding:0px;
+  line-height:140%;
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 85%;
+  background-color:#ffffff;
+}
+
+TABLE { 
+  font-size: 100%;
+}
+
+#body { margin: 2em; }
+
+TD.species {
+  vertical-align: middle;
+  text-align: center;
+  padding: 2px;
+}
+
+TD.species IMG { border: none; }
+TD.species FORM { display:inline; }
+TD.species INPUT {
+  margin-left: 1em;
+  padding: 1px;
+  font-size: smaller;
+  border-width: 1px;
+}
+
+
+TABLE.speciesExpr TD.op {
+  vertical-align: middle;
+}
+
+SPAN.rate { font-size: smaller;}
+
+
+TABLE.reactionArrow { width: 100%; }
+TABLE.reactionArrow TR TD TABLE.body { width: 100%; }
+TABLE.reactionArrow TR TD TABLE.body TR TD.upper {
+  border-bottom: 2px solid black;
+  padding: 2px 4px 2px 4px;
+  text-align: center;
+  height: 20px;
+}
+TABLE.reactionArrow TR TD TABLE.body TR TD.lower { 
+  padding: 2px 4px 2px 4px;
+  text-align: center;
+  height: 20px;
+}
+TABLE.reactionArrow TR TD.head IMG { vertical-align: middle; }
+
+DIV.species IMG { border: none; }
+
+
+DIV.logo {
+  display: table;
+}
+DIV.logo DIV {
+  display: table-cell;
+  vertical-align: top;
+}
+TABLE.menu TBODY TR TD {
+  padding-right: 20pt;
+}
+
+SPAN.smiles { color: Red; }
+SPAN.inchi { color: Green; }
+
+INPUT.right { float: right; }
+
+P.browseBar { background-color: #eeeeee; }
+
+P.figure { text-align: center; }
+P.figure IMG { width: 70%; }
+
+DIV.errorMessage { color: Red;  }
+
+TABLE.markList { 
+  margin: 0.5em;
+  border: 1px solid  brown;
+  background-color: #f5e8cf;
+  padding: 0px; 
+}
+
+TABLE.markList TD UL { 
+  margin: 0px;
+}
+TABLE.markList TD LI {
+  list-style-type: none;
+  display: inline;
+}
+TABLE.markList INPUT.button { 
+  margin: 2px;
+  text-align: center;
+}
+
+
+/* Apologies to www.gnome.org for header style. */
+#header
+   {
+   margin: 0px;
+   padding: 0px;
+   width: 100%;
+   /* background:url("pics/mcm_header_bg.jpg") no-repeat; */
+   background-color:#9B9BFF;
+   border-bottom:1px solid #5b9293;
+   }
+
+#logo
+   {
+   border-width: 0px;
+   }
+
+#menu
+   {
+  padding: 0px;
+  margin: 0px;
+   }
+#menu A { 
+  text-decoration: none;
+}
+#menu ul
+   {
+   margin:0px;
+   padding:0px;
+   }
+#menu li
+   {
+   margin:0px; 
+   padding:0px;
+   padding-right:2.5ex;
+   display:inline;
+   list-style-type: none;
+   font-size:95%;
+   }
+
+TD.searchComment { 
+  width: 40%;
+}
+
+DIV.searchResults { 
+  border: 1px dashed black;
+  padding: 2px;
+ }
+
+DIV.searchResults LI { 
+  display: inline;
+  list-style-type: none;
+}
+
+DIV.searchResults TABLE { 
+  display: inline;
+ }
+
+TABLE.detailedMenu TD { width: 50%; vertical-align: top; padding-left: 1em; }
+TABLE.detailedMenu H4 { margin-top: 0.5em; margin-bottom: 0.5em; }
+
+TABLE.subset TD { padding-right: 0.5em; }
+TABLE.subset TFOOT TD { 
+  font-weight: bold;
+  border-top: 1px solid black;
+  text-align: center;
+}
+
+TABLE.infobox {
+  border: 1px solid black;
+  font-size: 12px;
+}
+
+TABLE.infobox TH {
+  vertical-align: top;
+}
+
+a.searchLink IMG {
+  border: none;
+  position: relative; top:0.7em;
+}
+
+TD.searchBar {
+  text-align: right;
+}
+TD.searchBar INPUT {
+  font-size: smaller;
+}
+
+DIV.msketch {
+  border: 1px solid black;
+}

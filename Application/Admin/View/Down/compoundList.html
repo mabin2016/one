@@ -1,0 +1,54 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>化合物列表</h2>
+	</div>
+	<!-- 数据列表 -->
+	<div class="data-table table-striped">
+		<table class="">
+			<thead>
+			<tr>
+				<th class="">Chemicals</th>
+				<th class="">Name1</th>
+				<th class="">Name2</th>
+				<th class="">Name3</th>
+				<th class="">CAS</th>
+				<th class="">Recursive</th>
+				<th class="">IsRO2</th>
+				<th class="">IsPrimary</th>
+				<th class="">IsOrganic</th>
+				<th class="">Image</th>
+				<th class="">Document</th>
+				<th class="">添加时间</th>
+			</tr>
+			</thead>
+			<tbody>
+			<notempty name="_list">
+				<volist name="_list" id="vo">
+					<tr>
+						<td>{$vo.c_chemicals} </td>
+						<td>{$vo.c_name1}</td>
+						<td>{$vo.c_name2}</td>
+						<td>{$vo.c_name3}</td>
+						<td>{$vo.c_cas}</td>
+						<td>{$vo.c_recursive}</td>
+						<td>{$vo.c_is_ro2}</td>
+						<td>{$vo.c_is_primary}</td>
+						<td>{$vo.c_is_organic}</td>
+						<td><a href="{$vo.c_img_url}" target="_blank">{$vo.c_img}</a></td>
+						<td><a href="{$vo.c_document_url}" target="_blank">{$vo.c_document}</a></td>
+						<td>{$vo.c_add_time}</td>
+					</tr>
+				</volist>
+				<else/>
+				<td colspan="12" class="text-center">暂时还没有内容! </td>
+			</notempty>
+			</tbody>
+		</table>
+	</div>
+	<div class="page">
+		{$_page}
+	</div>
+</block>

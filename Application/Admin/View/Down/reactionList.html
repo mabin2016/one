@@ -1,0 +1,48 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>化合反应列表</h2>
+	</div>
+	<!-- 数据列表 -->
+	<div class="data-table table-striped">
+		<table class="">
+			<thead>
+			<tr>
+				<th class="">Reactant1</th>
+				<th class="">Reactant2</th>
+				<th class="">Reactant3</th>
+				<th class="">Product2</th>
+				<th class="">Product2</th>
+				<th class="">Product3</th>
+				<th class="">kT</th>
+				<th class="">Doc</th>
+				<th class="">添加时间</th>
+			</tr>
+			</thead>
+			<tbody>
+			<notempty name="_list">
+				<volist name="_list" id="vo">
+					<tr>
+						<td>{$vo.r_reactant1} </td>
+						<td>{$vo.r_reactant2}</td>
+						<td>{$vo.r_reactant3}</td>
+						<td>{$vo.r_product1}</td>
+						<td>{$vo.r_product2}</td>
+						<td>{$vo.r_product3}</td>
+						<td>{$vo.r_kt}</td>
+						<td><a href="{$vo.r_document_url}" target="_blank">{$vo.r_document}</a></td>
+						<td>{$vo.r_add_time}</td>
+					</tr>
+				</volist>
+				<else/>
+				<td colspan="8" class="text-center">暂时还没有内容! </td>
+			</notempty>
+			</tbody>
+		</table>
+	</div>
+	<div class="page">
+		{$_page}
+	</div>
+</block>

@@ -1,0 +1,291 @@
+<include file="header" />
+    <div id="body">
+	<script type="text/javascript">
+<!--
+function popup(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+   href=mylink;
+else
+   href=mylink.href;
+window.open(href, windowname, 'width=1000,height=600,scrollbars=yes');
+return false;
+}
+//-->
+</script>	  
+
+      <h3>
+	Browsing: <font id="c_name"></font>
+	
+      </h3>
+<!--<div tal:condition="python:mcm.isC5H8(species)"> <h1 align="center"><A 
+   HREF="http://mcm.leeds.ac.uk/MCM/popup.htt" 
+   onClick="return popup(this, 'notes')">Important MCMv3.3 status announcement</A></h1></div>-->
+
+      <table class="infobox">
+	  <tbody>
+	  <!--<tr>
+		  <th align="left">Molecular weight</th>
+		  <td>
+			<span class="mass">60.0950</span>
+		  </td>
+		</tr>
+        <tr><th align="left">SMILES</th> 
+	  <td>
+	    <span class="smiles">CCCO</span>
+	  </td>
+		</tr>
+			<tr><th align="left">Inchi</th>
+		  <td>
+			<span class="inchi">InChI=1S/C3H8O/c1-2-3-4/h4H,2-3H2,1H3</span>
+			 </td>
+		</tr>-->
+	   <!-- <tr>
+			  <th align="left">External Links:</th>
+			  <td>
+	      <a href="http://www.google.com/search?q=InChI=1S/C3H8O/c1-2-3-4/h4H,2-3H2,1H3" class="searchLink" title="Search Google">
+		<img src="__PUBLIC__/browse_files/search.png" alt="Search ">Google</a>
+	      <a href="http://www.chemspider.com/Search.aspx?q=InChI=1S/C3H8O/c1-2-3-4/h4H,2-3H2,1H3" class="searchLink" title="Search ChemSpider">
+		<img src="__PUBLIC__/browse_files/search.png" alt="Search ">ChemSpider</a>
+	      <a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=pccompound&amp;term=%22InChI=1S/C3H8O/c1-2-3-4/h4H,2-3H2,1H3%22[inchi]" class="searchLink" title="Search PubChem">
+	        <img src="__PUBLIC__/browse_files/search.png" alt="Search ">PubChem
+	      </a>
+	      <a href="http://webbook.nist.gov/cgi/cbook.cgi?Name=InChI=1S/C3H8O/c1-2-3-4/h4H,2-3H2,1H3" class="searchLink" title="Search NIST WebBook"><img src="__PUBLIC__/browse_files/search.png" alt="Search ">NIST WebBook</a>
+			 
+			 <a href="http://iupac.pole-ether.fr/cgi-bin/Compound.cgi?name=InChI=1S/C3H8O/c1-2-3-4/h4H,2-3H2,1H3&amp;nameType=InChI" class="searchLink" title="Search IUPAC"><img src="__PUBLIC__/browse_files/search.png" alt="Search ">IUPAC</a>
+			 
+			 <a href="http://era-orleans.org/eradb/index.php?fonctionnalite=inchi&amp;inchi=1S/C3H8O/c1-2-3-4/h4H,2-3H2,1H3" class="searchLink" title="Search ERADB"><img src="__PUBLIC__/browse_files/search.png" alt="Search ">ERADB</a>
+			  <a href="http://www.ebi.ac.uk/chebi/advancedSearchFT.do?searchString=InChI=1/C3H8O/c1-2-3-4/h4H,2-3H2,1H3" class="searchLink" title="Search CHEBI"><img src="__PUBLIC__/browse_files/search.png" alt="Search ">CHEBI</a></td>
+			 
+			 </tr>-->
+	 
+	<tr>
+	  <th align="left">Synonyms：</th>
+	  <td>
+		  <div id="Synonyms"></div>
+	    <!--<span>
+	      1-propanol;
+		</span>
+		  <span>
+	      Propyl alcohol;
+            </span><span>
+	      propanol;
+            </span><span>
+	      n-propanol;
+            </span><span>
+	      Propan-1-ol;
+            </span>-->
+	  </td>
+	</tr>
+      </tbody>
+	  </table>
+
+		<table class="reactionList" id="reactionList" align="center"></table>
+			<script id="reaction-list" type="text/x-handlebars-template">
+				<tbody>
+				{{#each this}}
+					<tr>
+						<td>
+							<table class="speciesExpr">
+								<tbody><tr>
+									<td class="species">
+										<a>
+											<img src="__PUBLIC__/images/C2H5OH.jpg" style="width:80px;height:40px;"><br>
+											{{r_reactant1}}
+										</a>
+										<input type="button" value="Mark" class="addMarks" tag="{{r_reactant1}}">
+
+									</td>
+									<td class="op">+</td>
+									<td class="species">
+										<a>
+											{{r_reactant2}}
+										</a>
+									</td>
+								</tr>
+								</tbody></table>
+						</td>
+						<td>
+							<table class="reactionArrow" cellspacing="0" cellpadding="0">
+								<tbody><tr>
+									<td><table class="body" cellspacing="0" cellpadding="0">
+										<tbody><tr>
+											<td class="upper">
+												<span class="rate">{{r_kt}}</span>
+											</td>
+										</tr>
+										<tr>
+										</tr><tr>
+											<td class="lower"></td>
+										</tr>
+										</tbody></table></td>
+									<td class="head"><img src="__PUBLIC__/browse_files/arrowhead.gif" alt="arrowhead"></td>
+								</tr>
+								</tbody></table>
+						</td>
+						<td>
+							<table class="speciesExpr">
+								<tbody><tr>
+									<td class="species">
+										<a href="browse.html?species={{r_product1}}">
+											<img src="C2H5O.png" alt=""><br>
+											{{r_product1}}
+										</a>
+										<form action="#" method="post">
+											<input value="{{r_product1}}" type="hidden" name="marks">
+											<input value="/browse.html?species={{r_product1}}" type="hidden" name="url">
+											<input type="button" value="Mark">
+										</form>
+									</td>
+								</tr>
+								</tbody></table>
+						</td>
+						<td>
+							<a href="__PUBLIC__/doc/C2H5OH.pdf">
+								Doc.
+							</a>
+						</td>
+					</tr>
+				{{/each}}
+				</tbody>
+			</script>
+
+
+
+	
+	 <script type="text/javascript">
+function toggleContent() {
+  // Get the DOM reference
+  var contentId = document.getElementById("reference");
+  // Toggle 
+  contentId.style.display == "block" ? contentId.style.display = "none" : 
+contentId.style.display = "block"; 
+}
+</script>
+
+	<!--<div><a href="browse.html?species=NPROPOL#" onclick="toggleContent();">Show/Hide References</a></div>
+	<div id="reference" style="display:none;">
+		<div class="searchResults">
+			<table>
+				<tbody><tr>
+					<td>
+						<div>
+							IUPAC Datasheet: HOx_VOC25_HO_CH3CH2CH2OH
+							<span>[<a href="http://iupac.pole-ether.fr/htdocs/datasheets/pdf/HOx_VOC25_HO_CH3CH2CH2OH.pdf">PDF</a>]</span>
+							k: 5.8D-12  Temperature:298
+						</div><div>
+							IUPAC Datasheet: HOx_VOC25_HO_CH3CH2CH2OH
+							<span>[<a href="http://iupac.pole-ether.fr/htdocs/datasheets/pdf/HOx_VOC25_HO_CH3CH2CH2OH.pdf">PDF</a>]</span>
+							k: 4.6D-12*EXP(70/TEMP)  Temperature:260&lt;T&lt;380
+						</div><div>
+							IUPAC Datasheet: X_VOC16_Cl_nC3H7OH
+							<span>[<a href="http://iupac.pole-ether.fr/htdocs/datasheets/pdf/X_VOC16_Cl_nC3H7OH.pdf">PDF</a>]</span>
+							k: 1.6D-10  Temperature:298
+						</div><div>
+							IUPAC Datasheet: X_VOC16_Cl_nC3H7OH
+							<span>[<a href="http://iupac.pole-ether.fr/htdocs/datasheets/pdf/X_VOC16_Cl_nC3H7OH.pdf">PDF</a>]</span>
+							k: 2.7D-11*EXP(525/TEMP)  Temperature:270&lt;T&lt;350
+						</div>
+					</td>
+				</tr>
+				</tbody></table>
+			</div>
+	</div> -->
+	
+ <script type="text/javascript">
+function togglePrecur() {
+  // Get the DOM reference
+  var contentId = document.getElementById("precur");
+  // Toggle 
+  contentId.style.display == "block" ? contentId.style.display = "none" : 
+contentId.style.display = "block"; 
+}
+</script>
+
+	<!--<div><a href="browse.html?species=NPROPOL#" onclick="togglePrecur();">Show/Hide Precursors</a></div>-->
+	<div id="precur" style="display:none;">
+
+	  <div></div>
+    
+<div>
+
+</div>
+<div class="searchResults">
+  <h3>Precursors of <span>NPROPOL</span>
+  </h3>
+  <span>Number of precursors: <span>1</span></span><br>
+	<ul>
+	<li>
+
+	  <table>  
+			<tbody><tr><td class="precursor">
+  <a href="browse.html?species=NC3H7O2">
+    
+      <img src="__PUBLIC__/browse_files/NC3H7O2.png" border="0" alt=""><br>
+
+   NC3H7O2
+   </a>
+  
+   <form action="add" method="post">
+      <input value="NC3H7O2" type="hidden" name="marks">
+      <input value="browse.html?species=NPROPOL" type="hidden" name="url">
+      <input type="button" value="Mark">
+    </form>
+     
+  
+</td></tr>
+			</tbody></table> 
+		  </li>
+</ul>
+  </div>
+</div>
+
+	<!--<form method="get" action="cml.py">
+		<input value="NPROPOL" type="hidden" name="species">
+		<input type="button" value="View CML">
+	</form> -->
+      
+
+	
+      
+    </div>
+
+<script type="text/javascript">
+	$(function (){
+		var Browse = (function() {
+			return {
+				list : function() {
+					var q = Base.queryString('species');
+					if(q){
+						var url = "{:U('/Home/Main/reaction_list')}";
+						var render = function (res){
+							var d = res.data;
+							var one = res.data2;//化合物
+							if(d.status == 1){
+								var source   = $("#reaction-list").html();
+								var template = Handlebars.compile(source);
+								var html    = template(d.data);
+								$("#reactionList").html(html);
+								var c_name = one.c_chemicals;
+								var syn = '<span>'+one.c_chemicals+'</span>';
+								if(one.c_name1) {syn += ',<span>'+one.c_name1+'</span>';}
+								if(one.c_name2) {syn += ',<span>'+one.c_name2+'</span>';}
+								$("#c_name").html(c_name);
+								$("#Synonyms").html(syn);
+							}else{
+								$("#reactionList").append('<div>No Result!</div>');
+							}
+						}
+						Base.goAjax(url,{'q':q},render);
+					}
+				}
+			}
+		}());
+		Browse.list();
+
+	});
+</script>
+    
+<include file="footer" />

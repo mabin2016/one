@@ -1,0 +1,314 @@
+[ 2016-12-08T07:56:06+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000102s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000806s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:56:08+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000036s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000107s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000515s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:56:08+08:00 ] 219.137.52.140 /Home/Index/project.html
+ERR: Think\Model:getConstatnt方法不存在！
+
+[ 2016-12-08T07:56:46+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000029s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000099s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000394s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:56:48+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000030s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000094s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000340s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:56:49+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000033s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000098s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000369s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:57:26+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000086s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000601s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:57:29+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000029s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000100s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000408s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:57:29+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000088s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.001647s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:57:31+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000036s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000135s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000457s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:57:34+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000090s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000323s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:57:35+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000028s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000102s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000356s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:57:36+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000097s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000342s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:57:37+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000030s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000110s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000364s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:57:39+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000032s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000098s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000344s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:57:40+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000038s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000133s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000349s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:57:40+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000093s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000370s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:57:41+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000094s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000345s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:57:55+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000080s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000299s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000451s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:57:55+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000027s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000096s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000454s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:57:57+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000043s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000119s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000416s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:57:59+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000100s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000335s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:58:01+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000037s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000117s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000407s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:58:01+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000031s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000104s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000327s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:58:04+08:00 ] 101.199.108.53 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000028s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000094s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_u7io4eoqq0kfoveh1f2ld09qf5, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000346s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:58:05+08:00 ] 219.137.52.140 /Home/Index/add.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000089s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000374s ]
+
+[ 2016-12-08T07:58:05+08:00 ] 219.137.52.140 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000125s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_nnsgn753sl22vb05nkmr355rm3, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000375s ]
+
+[ 2016-12-08T07:58:10+08:00 ] 220.181.132.197 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000104s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_ue3n78j8vs4323kov9ut7u5311, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000416s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:58:10+08:00 ] 101.199.108.57 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000091s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_ltl0trtliegh60bnlc72vockq7, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000349s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:58:10+08:00 ] 101.199.108.118 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000029s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000098s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_ip2mom0s32j4h1imie1rbanjo6, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000371s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:58:57+08:00 ] 101.199.108.118 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000028s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000094s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_4hmsgi0u5fdntseps7ltm2l2a1, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000391s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:59:10+08:00 ] 101.199.108.54 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000092s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_a8om4kdb4lnk3euu6tjq6n2v96, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000403s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:59:23+08:00 ] 101.199.108.55 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000027s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000092s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_p07jpa3io271ddclgkdlom75m5, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000352s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:59:23+08:00 ] 101.199.108.58 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000090s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_9kog1j80otl6ph37gq08nt8qi2, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000341s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:59:30+08:00 ] 101.199.112.49 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000038s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000133s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_jgm9od3lulupe764jp5t5t5hd0, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000535s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+
+[ 2016-12-08T07:59:32+08:00 ] 101.199.112.54 /Home/Index/list_marks.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000028s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000097s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_6471jhuglh4181gd4bamhgvi61, O_RDWR) failed: Permission denied (13) /data/html/one/ThinkPHP/Common/functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `one_compound` [ RunTime:0.000389s ]
+NOTIC: [2] array_values() expects parameter 1 to be array, null given /data/html/one/Application/Home/Controller/IndexController.class.php 第 91 行.
+NOTIC: [4096] Argument 1 passed to exit_json() must be of the type array, null given, called in /data/html/one/Application/Home/Controller/IndexController.class.php on line 92 and defined /data/html/one/Application/Common/Common/function.php 第 1098 行.
+

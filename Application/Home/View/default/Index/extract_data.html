@@ -1,0 +1,86 @@
+<include file="header" />
+    <div id="body">
+ <script type="text/javascript">
+<!--
+function popup(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+   href=mylink;
+else
+   href=mylink.href;
+window.open(href, windowname, 'width=1000,height=600,scrollbars=yes');
+return false;
+}
+//-->
+</script>	  
+
+
+<!--<h1 align="center"><A 
+   HREF="http://mcm.leeds.ac.uk/MCM/popup.htt" 
+   onClick="return popup(this, 'notes')">Important MCMv3.3 status announcement</A></h1>  -->       
+      <h3>Extract Sub-Mechanisms</h3>
+
+      <p>
+	You can extract a subset of the MCM using your mark list as
+	the set of primary species.  All subsequent reactions and
+	species will be included in the mechanism.
+      </p>
+      <form method="post" action="{:U('/Home/Index/extract_list')}">
+	<p><b>
+	  Select the format in which you would like to generate the sub-mechanism:</b>
+	</p>
+	<input type="radio" name="format" value="html-mcm" checked="yes">
+	HTML, displaying MCM species names.
+	<br>
+	<input type="radio" name="format" value="html-smiles">
+	HTML, displaying SMILES strings.
+	<br>
+	<input type="radio" name="format" value="facsimile">
+	FACSIMILE input format, suitable for inserting into a FACSIMILE model.
+	<br>
+	<input type="radio" name="format" value="fortran">
+	FORTRAN format, suitable for use with a FORTRAN numerical integrator.
+<br>
+    Download the files needed to convert existing FACSIMILE files to FORTRAN compatible format or experimental KPP format.<br>
+ <a href="http://mcm.leeds.ac.uk/MCMv3.3.1/fortran_convertor.zip"> FORTRAN converter zip file </a> 
+  	<br>
+<!--	<input type="radio" name="format" value="fortran2">
+	FORTRAN format, suitable for use with a FORTRAN numerical integrator (includes inorganic reactions).
+ 
+
+	<br> -->
+	<input type="radio" name="format" value="xml">
+	XML, experimental XML format.
+	<br>
+	View the Schema <a href="http://mcm.leeds.ac.uk/MCMv3.3.1/mechanism.xsd"> mcm.xsd </a> against which the XML file can be validated.
+	<br>
+	<input type="radio" name="format" value="kpp">
+	KPP, experimental KPP format.
+
+	<br>
+	<input type="radio" name="format" value="Fac-Meta">
+	FACSIMILE with RDF metadata, experimental (CM).
+	
+	<br>
+	<input type="radio" name="format" value="Mol-Weight">
+	Molecular Weights for all species in a subset.
+<!--<br>
+    Download the a FORTRAN file containing the rate coefficient data.<br>
+ <A href="kpp_constants.f90"> Constants FORTRAN file. </A> 
+-->
+	<br>
+	<br>
+	<p> <b>Select which options you require:</b></p>
+	<input type="checkbox" name="inorganic" value="yes">Include inorganic reactions?<br>
+<input type="checkbox" name="generic" value="yes">Include generic rate coefficients?  FACSIMILE, FORTRAN and KPP formats only<br>
+	<p><b>
+	  Click below to generate the sub-mechanism.</b>
+	</p>
+	<input type="submit" value="Extract">
+   </form>
+      
+    </div>
+    
+<include file="footer" />

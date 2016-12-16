@@ -1,0 +1,179 @@
+<include file="Common/header" />
+<link rel="stylesheet" href="/Public/Adminmh/flatkit/libs/jquery/plugins/integration/bootstrap/3/dataTables.bootstrap.css">
+<link rel="stylesheet" href="/Public/Adminmh/styles/common.css">
+</head>
+<body>
+  <div class="app" id="app">
+
+<!-- ############ LAYOUT START-->
+  <include file="Common/nav" />
+  <!-- content -->
+  <div id="content" class="app-content" role="main">
+    <include file="Common/app-header" />
+    <include file="Common/app-footer" />
+    <div ui-view class="app-body" id="view">
+
+      <!-- ############ PAGE START-->
+      <div class="padding" id="indexContainer">
+
+      </div>
+      <script id="indexTemp" type="text/x-handlebars-template">
+        <div class="box p-no">
+            <ul class="clearfix p-l-0 m-b-0 total-list">
+              <li>
+                <a href="{:U('AdvUsers/index')}">
+                  <div class="font-color-qing text-md m-b-20 l-h-1x change">+{{top_data.new_adv_account}}</div>
+                  <div class="m-b-10 name">广告主数量</div>
+                  <div class="font-size-xs total">{{top_data.adv_account_count}}</div>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <div class="font-color-qing text-md m-b-20 l-h-1x change">+{{top_data.new_weixin_account}}</div>
+                  <div class="m-b-10 name">公众号数量</div>
+                  <div class="font-size-xs total">{{top_data.weixin_account_count}}</div>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <div class="font-color-qing text-md m-b-20 l-h-1x change">+{{top_data.new_weibo_account}}</div>
+                  <div class="m-b-10 name">微博数量</div>
+                  <div class="font-size-xs total">{{top_data.weibo_account_count}}</div>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <div class="font-color-qing text-md m-b-20 l-h-1x change">+{{top_data.new_video_account}}</div>
+                  <div class="m-b-10 name">短视频数量</div>
+                  <div class="font-size-xs total">{{top_data.video_account_count}}</div>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <div class="font-color-qing text-md m-b-20 l-h-1x change">+{{top_data.new_weixin_order}}</div>
+                  <div class="m-b-10 name">微信订单</div>
+                  <div class="font-size-xs total">{{top_data.weixin_order_count}}</div>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <div class="font-color-qing text-md m-b-20 l-h-1x change">+{{top_data.new_weibo_order}}</div>
+                  <div class="m-b-10 name">微博订单</div>
+                  <div class="font-size-xs total">{{top_data.weibo_order_count}}</div>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <div class="font-color-qing text-md m-b-20 l-h-1x change">+{{top_data.new_video_order}}</div>
+                  <div class="m-b-10 name">短视频订单</div>
+                  <div class="font-size-xs total">{{top_data.video_order_count}}</div>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <div class="font-color-qing text-md m-b-20 l-h-1x change">+{{top_data.new_moments_order}}</div>
+                  <div class="m-b-10 name">效果汇订单</div>
+                  <div class="font-size-xs total">{{top_data.moments_order_count}}</div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="p-no row no-gutter gridly pos-rlt">
+            <div class="col-md-8 p-r-10 brick">
+              <div class="box col-md-12 p-no m-b-10">
+                <div class="l-h-55 p-l-20 b-b">AE待办事项</div>
+                <div class="row p-y-30">
+                  <div class="col-md-6 user-icon">
+                    <ul class="m-b-0 p-l-0 user-item">
+                      <li>待分配广告主<a class="font-color-qing b-a btn m-l-10 p-x-10 p-y-0 rounded text-xs" href="">{{ae_data.unassign_adv_count}}</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6 b-l user-icon">
+                    <ul class="m-b-0 p-l-0 user-item">
+                      <li>待审核微信订单<a class="font-color-qing b-a btn m-l-10 p-x-10 p-y-0 rounded text-xs" href="">{{ae_data.uncheck_weixin_count}}</a></li>
+                      <li>待审核微博直推订单<a class="font-color-qing b-a btn m-l-10 p-x-10 p-y-0 rounded text-xs" href="">{{ae_data.uncheck_weibo_push_count}}</a></li>
+                      <li>待审核微博预约订单<a class="font-color-qing b-a btn m-l-10 p-x-10 p-y-0 rounded text-xs" href="">{{ae_data.uncheck_weibo_ordered_count}}</a></li>
+                      <li>待审核短视频订单<a class="font-color-qing b-a btn m-l-10 p-x-10 p-y-0 rounded text-xs" href="">{{ae_data.uncheck_video_count}}</a></li>
+                      <li>待审核效果汇订单<a class="font-color-qing b-a btn m-l-10 p-x-10 p-y-0 rounded text-xs" href="">{{ae_data.uncheck_moments_count}}</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="box col-md-12 p-no m-b-10">
+                <div class="l-h-55 p-l-20 b-b">商务待办事项</div>
+                <div class="row p-y-30">
+                  <div class="col-md-6 b-r user-icon">
+                    <ul class="m-b-0 p-l-0 user-item">
+                      <li>待跟进广告主<a class="font-color-qing b-a btn m-l-10 p-x-10 p-y-0 rounded text-xs" href="">{{bd_data.unfollowed_adv}}</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6 user-icon">
+                    <ul class="m-b-0 p-l-0 user-item">
+                      <li>待回款<a class="font-color-qing b-a btn m-l-10 p-x-10 p-y-0 rounded text-xs" href="">{{bd_data.unpayment_count}}</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="box col-md-4 p-no m-b-10 brick" style="height:483px">
+              <div class="l-h-55 p-l-20 b-b">业绩统计</div>
+              <div class="statistics">
+                <ul class="m-b-0 p-l-0 statistics-list">
+                  <li><a href="">业绩提成: <span>{{sales_statistics.commission}}</span></a></li>
+                  <li><a href="">本月子订单数: <span>{{sales_statistics.sub_order_count}}</span></a></li>
+                  <li><a href="">订单总收入: <span>{{sales_statistics.order_finance_data.income}}</span></a></li>
+                  <li><a href="">订单总成本: <span>{{sales_statistics.order_finance_data.cost}}</span></a></li>
+                  <li><a href="">订单总毛利: <span>{{sales_statistics.order_finance_data.grossprofit}}</span></a></li>
+                  <li><a href="">用户额度总计: <span>{{sales_statistics.order_credit_data.max_credit}}</span></a></li>
+                  <li><a href="">已用额度总计: <span>{{sales_statistics.order_credit_data.used_credit}}</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-no row no-gutter">
+            <div class="col-md-12">
+              <div class="box col-md-12 p-no m-b-10 brick">
+                <div class="l-h-55 p-l-20 b-b">媒介待办事项</div>
+                <div class="row p-y-30">
+                  <div class="col-md-4 user-icon">
+                    <ul class="m-b-0 p-l-0 user-item">
+                      <li>待审核微信账号<a class="font-color-qing b-a btn m-l-10 p-x-10 p-y-0 rounded text-xs" href="">{{media_data.uncheck_weixin_account_count}}</a></li>
+                      <li>待审核微博账号<a class="font-color-qing b-a btn m-l-10 p-x-10 p-y-0 rounded text-xs" href="">{{media_data.uncheck_weibo_account_count}}</a></li>
+                      <li>待审核美拍账号<a class="font-color-qing b-a btn m-l-10 p-x-10 p-y-0 rounded text-xs" href="">{{media_data.uncheck_video_account_count}}</a></li>
+                      <li>待审核秒拍账号<a class="font-color-qing b-a btn m-l-10 p-x-10 p-y-0 rounded text-xs" href="">{{media_data.uncheck_video_account_count}}</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-4 b-l user-icon">
+                    <ul class="m-b-0 p-l-0 user-item">
+                      <li>待跟进微信订单<a class="font-color-qing b-a btn m-l-10 p-x-10 p-y-0 rounded text-xs" href="">{{media_data.unfollowed_weixin_order}}</a></li>
+                      <li>待跟进微博直推订单<a class="font-color-qing b-a btn m-l-10 p-x-10 p-y-0 rounded text-xs" href="">{{media_data.unfollowed_weibo_push_order}}</a></li>
+                      <li>待跟进微博预约订单<a class="font-color-qing b-a btn m-l-10 p-x-10 p-y-0 rounded text-xs" href="">{{media_data.unfollowed_weibo_order_count}}</a></li>
+                      <li>待跟进短视频订单<a class="font-color-qing b-a btn m-l-10 p-x-10 p-y-0 rounded text-xs" href="">{{media_data.unfollowed_video_order_count}}</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-4 b-l user-icon">
+                    <ul class="m-b-0 p-l-0 user-item">
+                      <li>待更新微信账号<a class="font-color-qing b-a btn m-l-10 p-x-10 p-y-0 rounded text-xs" href="">{{media_data.unupdated_weixin_account}}</a></li>
+                      <li>待更新微博账号<a class="font-color-qing b-a btn m-l-10 p-x-10 p-y-0 rounded text-xs" href="">{{media_data.unupdated_weibo_account}}</a></li>
+                      <li>待更新美拍账号<a class="font-color-qing b-a btn m-l-10 p-x-10 p-y-0 rounded text-xs" href="">{{media_data.unupdated_video_account}}</a></li>
+                      <li>待审核秒拍账号<a class="font-color-qing b-a btn m-l-10 p-x-10 p-y-0 rounded text-xs" href="">{{media_data.uncheck_video_account_count}}</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </script>
+      <!-- ############ PAGE END-->
+    </div>
+  </div>
+  <!-- / content -->
+<!-- ############ LAYOUT END-->
+  </div>
+  <include file="Common/footer" />
+  <script src="/Public/Common/js/handlebars.js"></script>
+  <script src="/Public/Adminmh/scripts/common/base.js"></script>
+  <script src="/Public/Adminmh/scripts/index/index.js"></script>
+</body>
+</html>

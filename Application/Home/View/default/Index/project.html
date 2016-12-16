@@ -1,0 +1,20 @@
+<include file="header" />
+    <div id="body">
+		<table border="1">
+			<tr>
+				<th>Key</th>
+				<th>Value</th>
+			</tr>
+			<notempty name="_list">
+				<volist name="_list" id="vo">
+					<tr>
+						<td>{$vo.c_key} </td>
+						<td>{$vo.c_value}</td>
+					</tr>
+				</volist>
+				<else/>
+				<td colspan="2" class="text-center">No centent! </td>
+			</notempty>
+		</table>
+    </div>
+<include file="footer" />
