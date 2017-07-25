@@ -3,9 +3,6 @@ namespace AdminScut\Controller;
 use Think\Controller;
 /**
  * Login控制器
- * @author Meifu Gao
- * @createdate 2015-02-27
- * @updatedate 2015-02-28
  */
 class LoginController extends Controller {
     /**

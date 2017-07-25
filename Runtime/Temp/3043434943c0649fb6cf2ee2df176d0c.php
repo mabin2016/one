@@ -1,3 +1,0 @@
-<?php
-//000000003600a:2:{i:0;a:7:{s:11:"r_reactant1";s:6:"C2H5OH";s:11:"r_reactant2";s:2:"OH";s:11:"r_reactant3";s:0:"";s:10:"r_product1";s:5:"C2H5O";s:10:"r_product2";s:2:"ds";s:10:"r_product3";s:3:"sdf";s:4:"r_kt";s:25:"3.0D-12*EXP(20/TEMP)*0.05";}i:1;a:7:{s:11:"r_reactant1";s:6:"C2H5OH";s:11:"r_reactant2";s:2:"O2";s:11:"r_reactant3";s:0:"";s:10:"r_product1";s:3:"H2O";s:10:"r_product2";N;s:10:"r_product3";N;s:4:"r_kt";s:25:"3.0D-12*EXP(20/TEMP)*0.05";}}
-?>
