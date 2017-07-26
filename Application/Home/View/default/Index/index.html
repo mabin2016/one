@@ -1,48 +1,183 @@
-<extend name="Base/common"/>
+<include file="header" />
+<div id="body">
+	  
+	<script type="text/javascript">
+	<!--
+	function popup(mylink, windowname)
+	{
+	if (! window.focus)return true;
+	var href;
+	if (typeof(mylink) == 'string')
+	   href=mylink;
+	else
+	   href=mylink.href;
+	window.open(href, windowname, 'width=1000,height=600,scrollbars=yes');
+	return false;
+	}
+	//-->
+	</script>	  
 
-<block name="header">
-    <header class="jumbotron subhead" id="overview">
-        <div class="container">
-            <h2>源自相同起点，演绎不同精彩！</h2>
-            <p class="lead"></p>
-        </div>
-    </header>
-</block>
 
-<block name="side">
-<!-- 左侧 nav
-================================================== -->
-    <div class="span3 bs-docs-sidebar">
-        <ul class="nav nav-list bs-docs-sidenav">
-            {:W('Category/lists', array(1, true))}
-        </ul>
+	<h2>Welcome to the MCM website </h2>
+		 
+      <p>
+
+	The Master Chemical Mechanism (MCM) is a near-explicit chemical mechanism which describes the detailed gas-phase chemical processes involved in the tropospheric degradation of a series of primary emitted volatile organic compounds (VOCs). Currently, the degradation of methane and 142 non-methane VOCs is represented.
+
+      </p>
+
+      <p>
+
+	The MCM was originally developed to provide accurate, robust and up-to-date information concerning the role of specific organic compounds in ground-level ozone formation in relation to air quality policy development in Europe. However, it also provides a research tool for investigating other areas where a detailed representation of the chemistry is required, e.g. the generation of distributions of speciated radical and closed-shell intermediates formed during VOC degradation.
+
+      </p>
+<p>
+The main intention of this web site is to provide a flexible, easily utilised platform for the MCM that is readily accessed by the research and user communities, and to help promote its development and validation.
+</p>
+      <hr>
+
+
+      <table class="detailedMenu" align="center">
+
+	<tbody>
+
+	  <tr>
+
+	    <td width="50%">
+
+	      <h4><a href="./roots.html">Browse the mechanism</a></h4>
+
+	      View the list of primary VOCs from which you can navigate through
+
+	      the mechanism either from reactants to products, or vice-versa.
+		<a href="./help.html#browse">Help</a>
+	    </td>
+
+	    <td width="50%">
+
+	      <h4><a href="./project.html">Construction methodology</a></h4>
+
+	      Detailed information about the MCM and its history.
+		  <a href="./project.html#New_3.3.1">New in MCMv3.3.1</a>
+
+	    </td>
+
+	  </tr>
+
+	  <tr>
+
+	    <td>
+
+	      <h4><a href="./search.html">Search the mechanism</a></h4>
+
+	      Enter a SMILES string or MCM name to jump straight to matching species
+
+	      in the mechanism.
+		  <a href="./help.html#search">Help</a>
+
+	    </td>
+		
+		<td>
+
+	       <h4><a href="./meetings.html">MCM Workshops</a></h4>
+
+	      Information and presentations from the MCM development and user workshops.
+
+	    </td>
+	    
+
+	  </tr>
+
+	  <tr>
+
+	    <td>
+
+	      <h4><a href="./extract.html">Extract a subset</a></h4>
+
+	      Select your own list of primary species and extract a complete mechanism
+
+	      for them.  Mechanisms can be viewed as HTML or exported in a range of formats.
+		  <a href="./help.html#extract">Help</a>
+
+	    </td>
+<td rowspan="2&gt;
+
+	     &lt;h4&gt;Tutorials&lt;/h4&gt;
+			
+	      Learn more about how to use the MCM.  Tutorials are available on using the MCM with either &lt;a href=">
+
+	     <h4>Tutorials</h4>
+			
+	      Learn more about how to use the MCM.  Tutorials are available on using the MCM with either <a href="https://atchem.leeds.ac.uk/">AtChem Online</a> or FACSIMILE <br><br>
+			<a href="./atchem/tutorial_intro.html">AtChem Online Tutorial</a><br>
+			<a href="./tutorial_intro.html">Facsimile Tutorial</a>
+
+	    </td>
+	    
+
+	  </tr>
+
+	  <tr>
+
+	    <td>
+	      <h4><a href="./download.html">Download</a></h4>
+
+	      FACSIMILE input files for box model and trajectory model runs are available
+
+	      for current and previous versions of the MCM.
+
+	    </td>
+		
+		<td>
+	    </td>
+	  </tr>
+	  <tr>
+	    <td>
+	      <h4><a href="./MCMChamber.html">EUPHORE Chamber Simulations</a></h4>
+
+	      Notes on simulating EUPHORE chamber experiments.
+
+	    </td>
+
+	    <td>
+			<h4><a href="./citation.html">Citation</a></h4>
+
+			Details of the correct citation for MCM
+
+	    </td>
+
+	  </tr>
+	<tr>
+	<td>
+	      <h4><a href="./tools.html">Tools</a></h4>
+
+	      Various tools for use with the MCM
+
+	    </td>
+		<td>
+	      <h4><a href="./links.html">Links</a></h4>
+
+	      Useful tropospheric chemistry links.
+
+	    </td>
+</tr>
+<tr><td>
+Access to the Common Representative Intermediates mechanism (CRI v2) via a parallel searchable and extractable facility
+</td><td><h4><a href="javascript:void(0);">MCM Archive</a></h4>
+Archived website for MCMv3.2
+</td></tr>
+<tr> <td>
+<h4><a href="./feedback.html">Feedback</a></h4>
+
+	      Join the MCM mailing list or contact the maintainers directly.
+
+	    </td></tr>
+	</tbody>
+
+      </table>
+
+      <hr>
+
     </div>
-</block>
-
-<block name="body">
-    <div class="span9">
-        <!-- Contents
-        ================================================== -->
-        <section id="contents">
-            <article:list name="article" category="1" child="true">
-                <div class="">
-                    <h3><a href="{:U('Article/detail?id='.$article['id'])}">{$article.title}</a></h3>
-                </div>
-                <div>
-                    <p class="lead">{$article.description}</p>
-                </div>
-                <div>
-                    <span><a href="{:U('Article/detail?id='.$article['id'])}">查看全文</a></span>
-                    <span class="pull-right">
-                        <span class="author">{$article.uid|get_username}</span>
-                        <span>于 {$article.create_time|date='Y-m-d H:i',###}</span> 发表在 <span>
-                        <a href="{:U('Article/lists?category='.get_category_name($article['category_id']))}">{$article.category_id|get_category_title}</a></span> ( 阅读：{$article.view} )
-                    </span>
-                </div>
-                <hr/>
-            </article:list>
-
-        </section>
-    </div>
-        </div>
-</block>
+    
+<include file="footer" />

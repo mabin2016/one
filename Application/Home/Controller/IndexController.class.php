@@ -6,7 +6,7 @@ class IndexController extends Controller {
 		parent::__construct();
 		$this->model = new \Home\Model\MainModel();
 		$marks = cookie('marks');
-//		p($marks);
+// 		p($marks);
 	}
 
     public function index(){
@@ -138,6 +138,7 @@ class IndexController extends Controller {
 		}
 		exit_json($data);
 	}
+	
 	/**
 	 * cookie清空markList
 	 */

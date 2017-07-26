@@ -1,6 +1,6 @@
 <?php
 /**
- * 系统配文�?
+ * 系统配文�?
  * 所有系统级别的配置
  */
  
@@ -26,54 +26,50 @@ return array(
     'USER_ADMINISTRATOR' => 1, //管理员用户ID
 
     /* URL配置 */
-    'URL_CASE_INSENSITIVE' => true, //默认false 表示URL区分大小�?true则表示不区分大小�?
+    'URL_CASE_INSENSITIVE' => true, //默认false 表示URL区分大小�?true则表示不区分大小�?
     'VAR_URL_PARAMS'       => '', // PATHINFO URL参数变量
-    'URL_PATHINFO_DEPR'    => '/', //PATHINFO URL分割�?
+    'URL_PATHINFO_DEPR'    => '/', //PATHINFO URL分割�?
 
     /* 全局过滤配置 */
     'DEFAULT_FILTER' => '', //全局过滤函数
 
-    /* 数据库配�?*/
-    'DB_TYPE'   => 'mysqli', // 数据库类�?
+    /* 数据库配�?*/
+    'DB_TYPE'   => 'mysqli', // 数据库类�?
     'DB_HOST'   => '23.106.145.135', // 服务器地址
     //'DB_HOST'   => '127.0.0.1', // 服务器地址
     'DB_NAME'   => 'one', // 数据库名
-    'DB_USER'   => 'develop', // 用户�?
+    'DB_USER'   => 'develop', // 用户�?
     'DB_PWD'    => 'binma123...',  // 密码
     'DB_PORT'   => '3306', // 端口
     'DB_PREFIX' => 'one_', // 数据库表前缀
 
-    /* 文档模型配置 (文档模型核心配置，请勿更�? */
+    /* 文档模型配置 (文档模型核心配置，请勿更�? */
     'DOCUMENT_MODEL_TYPE' => array(2 => '主题', 1 => '目录', 3 => '段落'),
 	
-	
-	
-	
-	
-	'SITE' => str_replace('\\','/', dirname(dirname(dirname(dirname(__FILE__))))), //网站根目�?
+	'SITE' => str_replace('\\','/', dirname(dirname(dirname(dirname(__FILE__))))), //网站根目�?
 	//模板缓存配置
 	'TMPL_CACHE_ON' => false,//禁止模板编译缓存
-	'HTML_CACHE_ON' => false,//禁止静态缓�?
+	'HTML_CACHE_ON' => false,//禁止静态缓�?
 	//网站名称
 //		'WEB_NAME'			=> 'mysite',
 	
-	 //'配置�?=>'配置�?
+	 //'配置�?=>'配置�?
 	//url配置
 	'URL_CASE_INSENSITIVE' =>true,
-	'URL_MODEL'             =>  2,
+	'URL_MODEL'             =>  2,//URL模式
 	'SESSION_PREFIX'        =>  'ch',
 	'SESSION_OPTIONS' => array(
 			'name' => 'mysite',
 			'expire' => 86400
 	),
 	
-	//����
+	//����
 	'WEB_DOMAIN'		=> $web_domain,
 	'WEB_HTTP_DOMAIN' => 'http://'.$web_domain.'/',
 	'IMG_DOMAIN' => $img_domain,
 	'IMG_HTTP_DOMAIN' => 'http://'.$img_domain.'/Uploads/File/',
-	'IMG_REAL_PATH' => '/data/html/one/Uploads/File/',					//ͼƬ����·��
+	'IMG_REAL_PATH' => '/data/html/one/Uploads/File/',					//ͼƬ����·��
 	'DOWNLOAD_DOMAIN' => $down_domain,
 	'DOWNLOAD_HTTP_DOMAIN' => 'http://'.$down_domain.'/',
-	'DOWNLOAD_REAL_PATH' => '/data/downloads/mihui/',	//����Ŀ¼������ַ
+	'DOWNLOAD_REAL_PATH' => '/data/downloads/mihui/',	//����Ŀ¼�����ַ
 );
