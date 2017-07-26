@@ -73,6 +73,9 @@ class Verify {
         $session = session($key);
         session('bb', 55555);
         p(session('bb'));
+        p($key);
+        p($_SESSION[$key]);
+        
         p($session);
         die;
         if(empty($code) || empty($session)) {
