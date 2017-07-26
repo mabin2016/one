@@ -166,8 +166,8 @@ class Verify {
         }
         session(5555, $session);
         
-        $session2 = session(5555);
-        p($key);
+        session(6, 80800);
+        $session2 = session(6);
         p($session2);
         die;
         
