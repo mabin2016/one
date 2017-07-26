@@ -13,7 +13,7 @@ namespace Think;
 
 class Verify {
     protected $config =	array(
-        'seKey'     => 'ThinkPHP.CN',   //验证码加密密钥
+        'seKey'     => 'onedayadayjustdoit',   //验证码加密密钥
         'expire'    => 1800,            // 验证码过期时间（s）
         'useZh'     => false,           // 使用中文验证码 
         'useImgBg'  => false,           // 使用背景图片 
@@ -22,7 +22,7 @@ class Verify {
         'useNoise'  => true,            // 是否添加杂点	
         'imageH'    => 0,               // 验证码图片高度
         'imageW'    => 0,               // 验证码图片宽度
-        'length'    => 5,               // 验证码位数
+        'length'    => 4,               // 验证码位数
         'fontttf'   => '',              // 验证码字体，不设置随机获取
         'bg'        => array(243, 251, 254),  // 背景颜色
         );
@@ -71,6 +71,11 @@ class Verify {
         $key = $this->authcode($this->seKey);
         // 验证码不能为空
         $session = session($key);
+        $a = session('?'.$key);
+        p($a);
+        p(session($key));
+        p($key);
+        die;
         if(empty($code) || empty($session)) {
             return false;
         }
@@ -162,9 +167,6 @@ class Verify {
             $session['verify_time'] = NOW_TIME;  // 验证码创建时间
         }
         session($key, $session);
-        p($code);
-        p(session($key));
-        die;
         header('Cache-Control: private, max-age=0, no-store, no-cache, must-revalidate');
         header('Cache-Control: post-check=0, pre-check=0', false);		
         header('Pragma: no-cache');
