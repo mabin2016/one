@@ -73,6 +73,7 @@ class Verify {
         $session = session($key);
         if(empty($code) || empty($session)) {
         	echo 8;
+        die;
             return false;
         }
 
@@ -80,16 +81,17 @@ class Verify {
         // session 过期
         if(NOW_TIME - $secode['verify_time'] > $this->expire) {
         	echo 9;
+        die;
             session($key, null);
             return false;
         }
 
         if($this->authcode(strtoupper($code)) == $secode['verify_code']) {
         	echo 10;
+        die;
             session($key, null);
             return true;
         }
-        die;
         return false;
     }
 
