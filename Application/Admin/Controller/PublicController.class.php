@@ -23,7 +23,7 @@ class PublicController extends \Think\Controller {
     public function login($username = null, $password = null, $verify = null){
         if(IS_POST){
         	p($verify);
-        	p(session);
+        	p(session());
         	die;
         	
             /* 检测验证码 TODO: */
