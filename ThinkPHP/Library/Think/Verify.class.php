@@ -72,7 +72,6 @@ class Verify {
         // 验证码不能为空
         $session = session($key);
         p($key);
-        p($_SESSION);
         p($session);
         die;
         if(empty($code) || empty($session)) {
@@ -168,6 +167,7 @@ class Verify {
         session($key, $session);
         
         $session2 = session($key);
+        
         p($key);
         p($session2);
         die;
