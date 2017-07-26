@@ -71,9 +71,6 @@ class Verify {
         $key = $this->authcode($this->seKey);
         // 验证码不能为空
         $session = session($key);
-        p($code);
-        p($session);
-        die;
         if(empty($code) || empty($session)) {
             return false;
         }
@@ -165,7 +162,9 @@ class Verify {
             $session['verify_time'] = NOW_TIME;  // 验证码创建时间
         }
         session($key, $session);
-                
+        p($code);
+        p(session($key));
+        die;
         header('Cache-Control: private, max-age=0, no-store, no-cache, must-revalidate');
         header('Cache-Control: post-check=0, pre-check=0', false);		
         header('Pragma: no-cache');
