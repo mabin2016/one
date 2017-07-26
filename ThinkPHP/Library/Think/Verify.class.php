@@ -164,10 +164,9 @@ class Verify {
             $session['verify_code'] = $code; // 把校验码保存到session
             $session['verify_time'] = NOW_TIME;  // 验证码创建时间
         }
-        session($key, $session);
+        session(5555, $session);
         
-        $session2 = session($key);
-        
+        $session2 = session(5555);
         p($key);
         p($session2);
         die;

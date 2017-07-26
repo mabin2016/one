@@ -21,8 +21,11 @@ class PublicController extends \Think\Controller {
      * @author 麦当苗儿 <zuojiazi@vip.qq.com>
      */
     public function login($username = null, $password = null, $verify = null){
-    	
-    	check_verify(5541);
+    	$session2 = session(5555);
+    	p($key);
+    	p($session2);
+//     	die;
+//     	check_verify(5541);
     	die;
         if(IS_POST){
             /* 检测验证码 TODO: */
