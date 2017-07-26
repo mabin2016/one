@@ -71,6 +71,10 @@ class Verify {
         $key = $this->authcode($this->seKey);
         // 验证码不能为空
         $session = session($key);
+        session('bb', 55555);
+        p(session('bb'));
+        p($session);
+        die;
         if(empty($code) || empty($session)) {
             return false;
         }
