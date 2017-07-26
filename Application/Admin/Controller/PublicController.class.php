@@ -21,7 +21,7 @@ class PublicController extends \Think\Controller {
      * @author 麦当苗儿 <zuojiazi@vip.qq.com>
      */
     public function login($username = null, $password = null, $verify = null){
-
+    	session(6, 99999);
         $session2 = session(6);
         p($session2);
     	
