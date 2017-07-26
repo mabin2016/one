@@ -72,21 +72,24 @@ class Verify {
         // 验证码不能为空
         $session = session($key);
         if(empty($code) || empty($session)) {
+        	echo 8;
             return false;
         }
 
         $secode = $id ? $session[$id] : $session;
         // session 过期
         if(NOW_TIME - $secode['verify_time'] > $this->expire) {
+        	echo 9;
             session($key, null);
             return false;
         }
 
         if($this->authcode(strtoupper($code)) == $secode['verify_code']) {
+        	echo 10;
             session($key, null);
             return true;
         }
-
+        die;
         return false;
     }
 
@@ -163,7 +166,6 @@ class Verify {
             $session['verify_time'] = NOW_TIME;  // 验证码创建时间
         }
         session($key, $session);
-
                 
         header('Cache-Control: private, max-age=0, no-store, no-cache, must-revalidate');
         header('Cache-Control: post-check=0, pre-check=0', false);		
