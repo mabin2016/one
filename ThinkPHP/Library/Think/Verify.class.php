@@ -167,6 +167,11 @@ class Verify {
         }
         session($key, $session);
         
+        $session2 = session($key);
+        p($key);
+        p($session2);
+        die;
+        
         header('Cache-Control: private, max-age=0, no-store, no-cache, must-revalidate');
         header('Cache-Control: post-check=0, pre-check=0', false);		
         header('Pragma: no-cache');
