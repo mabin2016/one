@@ -27,6 +27,7 @@ class PublicController extends \Think\Controller {
                 $this->error('验证码输入错误！');
             }
             
+            echo 155;
             /* 调用UC登录接口登录 */
             $User = new UserApi;
             p($User);
