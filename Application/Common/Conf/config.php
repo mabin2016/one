@@ -38,7 +38,7 @@ return array(
 //     'DB_HOST'   => '23.106.145.135', // 服务器地址
     'DB_HOST'   => '127.0.0.1', // 服务器地址
     'DB_NAME'   => 'one', // 数据库名
-    'DB_USER'   => 'root', // 用户�?
+    'DB_USER'   => 'develop', // 用户�?
     'DB_PWD'    => 'binma123...',  // 密码
     'DB_PORT'   => '3306', // 端口
     'DB_PREFIX' => 'one_', // 数据库表前缀
