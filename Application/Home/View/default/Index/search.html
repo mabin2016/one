@@ -1,146 +1,124 @@
 <include file="header" />
-
-    <div id="body">
-		<div class="searchResults">
-			<h3>Search Results for <span id="result_q"></span></h3>
-    		<span>Number of matches: <span id="total">0</span></span>
-			<div id="result_content"></div>
-
-
-			<script type="text/javascript">
-				function toggleContent() {
-					// Get the DOM reference
-					var contentId = document.getElementById("searchResults");
-					// Toggle
-					contentId.style.display == "block" ? contentId.style.display = "none" :
-							contentId.style.display = "block";
-				}
-			</script>
-
-			<a href="#" onclick="toggleContent();">Show as list</a>
-			<div id="searchResults" style="display:none;">
-				<div>
-					C2H5O<br>C2H5O2<br>C2H5OH<br>C2H5OOH<br>
-
-				</div>
-			</div>
-		</div>
-
+<div id="body">
+    <include file="searchResults" />
     <h3>Search</h3>
     <table>
-      <tbody><tr>
-	<td valign="top">
-	  <!--<form method="POST" action="javascript:void(0);">-->
-	    <div>
-	      <p>
-	      <a href="http://mcm.leeds.ac.uk/MCMv3.3.1/search.html?applet=1">Draw Structure</a>(Java required)
-	      </p>
-	      Enter Search Term<br>
-	      <input value="" type="text" name="q" id="q">
-	      <input type="button" id="search" value="search"><br>
-		  
-	    </div>
-	    
-	  <!--</form>-->
-	  <p><a href="http://mcm.leeds.ac.uk/MCMv3.3.1/mass_search.html">Molecular weight search</a></p>
-	  <p><a href="http://mcm.leeds.ac.uk/MCMv3.3.1/advanced_search.html">Advanced Search</a></p>
-	</td>
-	<td class="searchComment">
-	  <p>Search by MCM name, <a href="http://www.daylight.com/dayhtml/smiles/">SMILES</a> string, <a href="http://www.daylight.com/dayhtml/doc/theory/theory.smarts.htmlSMARTS"></a> pattern, <a href="http://www.iupac.org/inchi/">InChI</a> or draw your strucutre, click the link to start the applet (Java required). The search function returns both full and partial matches.</p>
-	</td>
-      </tr>
-	  
-    </tbody>
+      	<tbody>
+	      	<tr>
+				<td valign="top">
+				  <div>
+				      <p>
+				      	<a href="http://mcm.leeds.ac.uk/MCMv3.3.1/search.html?applet=1">Draw Structure</a>
+				      </p>
+				      Enter Search Term<br>
+				      <input type="text" class="search_val" id="search_val" value="{$content}" >
+				      <input type="button" class="search_item" value="search" tag="btn"><br>
+				  </div>
+				  <p><a href="http://mcm.leeds.ac.uk/MCMv3.3.1/mass_search.html">Molecular weight search</a></p>
+				  <p><a href="http://mcm.leeds.ac.uk/MCMv3.3.1/advanced_search.html">Advanced Search</a></p>
+				</td>
+				<td class="searchComment">
+				  <p>Search by MCM name, <a href="http://www.daylight.com/dayhtml/smiles/">SMILES</a> string, <a href="http://www.daylight.com/dayhtml/doc/theory/theory.smarts.htmlSMARTS"></a> pattern, <a href="http://www.iupac.org/inchi/">InChI</a> or draw your strucutre, click the link to start the applet (Java required). The search function returns both full and partial matches.</p>
+				</td>
+	      	</tr>
+	    </tbody>
 	</table>
-		<style style="text/css">
-			.searchResults{display:none;}
-		</style>
-
-
-		<script type="text/javascript">
-			$(function (){
-				var mainPanel = $('body');
-				var search = function() {};
-				search.prototype = {
-					init: function() {
-						this.eventProxy();
-					},
-					eventProxy: function() {
-						var self = this;
-						mainPanel.on('click','#search,.pageSearch',function(e) {
-							e.stopPropagation();
-							self.list();
-						});
-					},
-					list: function() {
-						var url = "{:U('/Home/Main/search_result')}";
-						var q = $("#q").val();
-						var render = function (d){
-							$("#result_q").html(q);
-							$("#total").html(d.total);
-							if(d.total > 0){
-								var data = d.data;
-								var total = d.total;
-								var h = '';
-								if(total >= 2){
-									for(var i=1;i<=data.length;i=i+2){
-										var page = i-1;
-										page = page > 0 ? page : 1;
-										h += '<span>\
-												<a href="javascript:void(0);" class="pageSearch" tag="'+i+'">'+page+'</a>\
-										 </span>';
-									};
-								}
-
-								h += '<ul>';
-								for(var i=0;i<data.length;i++){
-									if(data[i].is_sel == 1){
-										var m = 'Unmark';
+	<style style="text/css">
+		.searchResults{display:none;}
+	</style>
+    
+   	<script type="text/javascript">
+    	//ËÑË÷¿ò
+		$(function (){
+			var mainPanel = $('body');
+			var search = function() {};
+			search.prototype = {
+				init: function() {
+					this.eventProxy();
+				},
+				eventProxy: function() {
+					var self = this;
+					mainPanel.on('click','.search_item,.pageSearch',function(e) {
+						e.stopPropagation();
+						self.list($(this));
+					});
+					var q = $("#search_val").val();
+					if(q){
+						self.list($(this));
+					}
+				},
+				list: function(self) {
+					var url = "{:U('/Home/Main/search_result')}";
+					var q = $("#search_val").val();
+					var pageSize = 10;
+					var render = function (d){
+						$("#result_q").html(q);
+						$("#total").html(d.total);
+						if(d.total > 0){
+							var data = d.data;
+							var total = d.total;
+							var current_page = d.current_page;
+							var h = '';
+							if(total >= 2){
+								var length = Math.ceil(total/pageSize);
+								for(var i=1;i<=length;i++){
+									var page = i;
+									if(current_page == page){
+										h += '<span>&nbsp;'+page+'&nbsp;</span>';
 									}else{
-										var m = 'Mark';
+										h += '<span>&nbsp;<a href="javascript:void(0);" class="pageSearch" p_tag="'+i+'">'+page+'</a>&nbsp;</span>';
 									}
-									h += '<li>\
-												<table>\
-													<tbody>\
-															<tr>\
-																<td class="species">\
-																<a href="browse.html?species='+data[i].c_chemicals+'">\
-																	<img src="__PUBLIC__/images/'+data[i].c_img+'" style="width:30px;height:30px;"><br>\
-																	<span>'+data[i].c_chemicals+'</span>\
-																</a>\
-																<form action="" method="post">\
-																	<input value="'+data[i].c_chemicals+'" type="hidden" name="marks" checked="checked">\
-																	<input type="button" value="'+m+'" class="addMarks searchBtn" tag="'+data[i].c_chemicals+'">\
-																</form>\
-																</td>\
-															</tr>\
-													</tbody>\
-												</table>\
-											</li>';
+								};
+							}
+
+							h += '<ul>';
+							for(var i=0;i<data.length;i++){
+								if(data[i].is_sel == 1){
+									var m = 'Unmark';
+								}else{
+									var m = 'Mark';
 								}
-								h += '</ul>';
-								$("#result_content").html(h);
-							}else{
-								$("#result_content").html('No result!');
+								h += '<li>\
+											<table>\
+												<tbody>\
+														<tr>\
+															<td class="species">\
+															<a href="browse.html?species='+data[i].c_chemicals+'">\
+																<img src="__PUBLIC__/images/'+data[i].c_img+'" style="width:30px;height:30px;"><br>\
+																<span>'+data[i].c_chemicals+'</span>\
+															</a>\
+															<form action="" method="post">\
+																<input value="'+data[i].c_chemicals+'" type="hidden" name="marks" checked="checked">\
+																<input type="button" value="'+m+'" class="addMarks searchBtn" tag="'+data[i].c_chemicals+'">\
+															</form>\
+															</td>\
+														</tr>\
+												</tbody>\
+											</table>\
+										</li>';
 							}
-						}
-						$("#result_content").html('Searching...');
-						$(".searchResults").show();
-						if(q){
-							var page = $(this).attr('tag');
-							if(!page){
-								page = 1;
-							}
-							var sendData = {'q':q,'page':page};
-							Base.goAjax(url,sendData,render);
+							h += '</ul>';
+							$("#result_content").html(h);
+						}else{
+							$("#result_content").html('No result!');
 						}
 					}
+					$("#result_content").html('Searching...');
+					$(".searchResults").show();
+// 					$("#result_content").hide();
+					
+					if(q){
+						var page = self.attr('p_tag');
+						if(!page){
+							page = 1;
+						}
+						var sendData = {'q':q,'page':page,'pageSize':pageSize};
+						Base.goAjax(url,sendData,render);
+					}
 				}
-
-				new search().init();
-			});
-		</script>
-    
-    
-    
+			}
+			new search().init();
+		});
+		
+	</script>
 <include file="footer" />

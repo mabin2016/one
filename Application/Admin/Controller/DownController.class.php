@@ -90,7 +90,7 @@ class DownController extends AdminController {
                 $arr[$k]['c_name1'] = $v[1];
                 $arr[$k]['c_name2'] = $v[2];
                 $arr[$k]['c_cas'] = $v[3];
-                $arr[$k]['c_recursive'] = $v[4];
+                $arr[$k]['c_recursive'] = $v[4] == 'Yes' ? 1 : 0;
                 $arr[$k]['c_is_ro2'] = $v[5];
                 $arr[$k]['c_is_primary'] = $v[6];
                 $arr[$k]['c_is_organic'] = $v[7];

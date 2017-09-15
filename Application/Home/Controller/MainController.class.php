@@ -12,11 +12,13 @@ class MainController extends Controller {
     public function search_result(){
         $q = get_var_value('q');
         $page = get_var_value('page');
+        $pageSize = get_var_value('pageSize');
+        $page = $page > 0 ? $page : 1;
         $map = array();
         if(!empty($q)){
             $map['c_chemicals'] = array("like","%$q%");
         }
-        $data = $this->model->getSearch($map,$page);
+        $data = $this->model->getSearch($map,$page,$pageSize);
         $marks = cookie('marks');
         $marks = array_values($marks);
         if(!empty($data)){
@@ -27,6 +29,7 @@ class MainController extends Controller {
                     $data['data'][$k]['is_sel'] = 0;
                 }
             }
+            $data['current_page'] = $page;
         }
         exit_json($data);
     }
@@ -62,7 +65,6 @@ class MainController extends Controller {
         if(empty($marks)){
             $data = array();
             exit_json($data);
-            $data = array();
         }
         if(!S('ch_data')){
             $data = $this->model->getAllData();
@@ -78,7 +80,6 @@ class MainController extends Controller {
         }
         $result = $this->deal_data($arr,$marks);
         $result = array_values($result);
-        //p($result);die;
         if(!empty($result)){
             $tmp = array();
             foreach ($result as $k=>&$v){
@@ -93,6 +94,8 @@ class MainController extends Controller {
                     }
                 }
             }
+        }else{
+        	$tmp = array();
         }
         exit_json($tmp);
     }

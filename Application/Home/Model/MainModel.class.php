@@ -8,16 +8,14 @@ class MainModel extends Model {
 	 * 查询列表
 	 * @return array
 	 */
-	public function getSearch( $map = array(), $page = 1 ) {
+	public function getSearch( $map = array(), $page = 1, $pageSize = 5) {
 		$return = array( 'total'=>0, 'data'=>array() );
-		$pageSize = 20;
 		$page = $page-1;
 		$limit = "$page,$pageSize";
 		$totalRecord = M()->table(C('DB_PREFIX').'compound' )->where( $map )->count();
 		$return['total'] = $totalRecord;
 		$field = array('id','c_chemicals','c_name1','c_name2','c_cas','c_img');
 		$data = M()->table(C('DB_PREFIX').'compound' )->field( $field )->where( $map )->limit( $limit )->select();
-//									    ->order( "a.wb_id desc" )
 		$return['data'] = $data;
 		return $return;
 	}

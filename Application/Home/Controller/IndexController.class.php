@@ -50,6 +50,8 @@ class IndexController extends Controller {
     }
 	
 	public function search(){
+		$content = get_var_value('q');
+		$this->assign('content', $content);
 		$this->display();
     }
 	
@@ -58,12 +60,12 @@ class IndexController extends Controller {
     }
 	
 	public function tutorial_intro(){
-		$this->display();		
+		$this->display();
     }
 	
 	public function project(){
 		$order = "id asc";
-		$list   =   $this->model->getConstatnt($order);
+		$list  = $this->model->getConstatnt($order);
 		$this->assign('_list', $list);
 		$this->display();
     }
@@ -89,6 +91,9 @@ class IndexController extends Controller {
 	public function list_marks(){
 		$marks = cookie('marks');
 		$data = array_values($marks);
+		if(!$data){
+			$data = array();
+		}
 		exit_json($data);
 	}
 
