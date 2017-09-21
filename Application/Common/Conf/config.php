@@ -4,7 +4,7 @@
  * 所有系统级别的配置
  */
  
-$web_domain = '23.106.145.135'; // 网站网址
+$web_domain = '67.218.140.159'; // 网站网址
 $img_domain = 'img.one.com';		//图片网址
 $down_domain = 'download.one.com'; //下载网址
 
