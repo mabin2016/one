@@ -139,6 +139,44 @@ return false;
 											<input type="button" value="Mark">
 										</form>
 									</td>
+
+									{{#if (ne r_product2 null)}}
+									<td class="op">+</td>
+									<td class="species">
+										{{#if (eq p_2 0)}}
+												{{r_product2}}
+										{{else}}
+											<a href="browse.html?species={{r_product2}}">
+												<img src="C2H5O.png" alt=""><br>
+												{{r_product2}}
+											</a>
+											<form action="#" method="post">
+												<input value="{{r_product2}}" type="hidden" name="marks">
+												<input value="/browse.html?species={{r_product2}}" type="hidden" name="url">
+												<input type="button" value="Mark">
+											</form>
+										{{/if}}
+									</td>
+									{{/if}}
+				
+									{{#if (ne r_product3 null)}}
+												<td class="op">+</td>
+												<td class="species">
+													{{#if (eq p_3 0)}}
+														{{r_product3}}
+													{{else}}
+														<a href="browse.html?species={{r_product3}}">
+															<img src="C2H5O.png" alt=""><br>
+															{{r_product3}}
+														</a>
+														<form action="#" method="post">
+															<input value="{{r_product3}}" type="hidden" name="marks">
+															<input value="/browse.html?species={{r_product3}}" type="hidden" name="url">
+															<input type="button" value="Mark">
+														</form>
+													{{/if}}
+												</td>
+									{{/if}}
 								</tr>
 								</tbody></table>
 						</td>

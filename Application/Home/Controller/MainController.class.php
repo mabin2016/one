@@ -44,7 +44,24 @@ class MainController extends Controller {
             $map2['c_chemicals'] = $q;
         }
         $data = $this->model->reactionList($map);
+//         p($data);die;
         $data2 = $this->model->getCompound($map2);
+        
+        if(!empty($data)){
+        	foreach ($data as $k=>&$v){
+        		if(in_array($v['r_product2'], array('CO','HO2','CO2'))){
+        			$v['p_2'] = 0;
+        		}else{
+        			$v['p_2'] = 1;//显示链接点击
+        		}
+        		if(in_array($v['r_product3'], array('CO','HO2','CO2'))){
+        			$v['p_3'] = 0;
+        		}else{
+        			$v['p_3'] = 1;//显示链接点击
+        		}
+        	}
+        }
+        
         if(!empty($data)){
             $data = array('data'=>$data,'status'=>1);
         }else{
