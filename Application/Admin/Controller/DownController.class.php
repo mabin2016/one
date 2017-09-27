@@ -12,7 +12,6 @@ class DownController extends AdminController {
 
     /**
      * 用户管理首页
-     * @author 麦当苗儿 <zuojiazi@vip.qq.com>
      */
     public function index(){
         $nickname       =   I('nickname');
@@ -32,7 +31,6 @@ class DownController extends AdminController {
 
     /**
      * 修改昵称初始化
-     * @author huajie <banhuajie@163.com>
      */
     public function reaction(){
         $nickname = M('Member')->getFieldByUid(UID, 'nickname');
@@ -199,7 +197,6 @@ class DownController extends AdminController {
 
     /**
      * 化合物列表
-     * @author huajie <banhuajie@163.com>
      */
     public function CompoundList(){
         $map['c_is_show']    =   1;
@@ -252,7 +249,6 @@ class DownController extends AdminController {
 
     /**
      * 修改密码提交
-     * @author huajie <banhuajie@163.com>
      */
     public function submitPassword(){
         //获取参数
@@ -278,7 +274,6 @@ class DownController extends AdminController {
 
     /**
      * 用户行为列表
-     * @author huajie <banhuajie@163.com>
      */
     public function action(){
         //获取列表数据
@@ -295,7 +290,6 @@ class DownController extends AdminController {
 
     /**
      * 新增行为
-     * @author huajie <banhuajie@163.com>
      */
     public function addAction(){
         $this->meta_title = '新增行为';
@@ -305,7 +299,6 @@ class DownController extends AdminController {
 
     /**
      * 编辑行为
-     * @author huajie <banhuajie@163.com>
      */
     public function editAction(){
         $id = I('get.id');
@@ -319,7 +312,6 @@ class DownController extends AdminController {
 
     /**
      * 更新行为
-     * @author huajie <banhuajie@163.com>
      */
     public function saveAction(){
         $res = D('Action')->update();

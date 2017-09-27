@@ -4,7 +4,6 @@ use Think\Model;
 
 /**
  * URL模型
- * @author huajie <banhuajie@163.com>
  */
 
 class ImportModel extends Model {
