@@ -45,16 +45,32 @@ class MainController extends Controller {
         }
         $data = $this->model->reactionList($map);
         $data2 = $this->model->getCompound($map2);
+		$product1 = array_column($data,'r_product1');
+		$product2 = array_column($data,'r_product2');
+		$product3 = array_column($data,'r_product3');
+		$tmp = array_merge($product1,$product2);
+		$tmp = array_values(array_filter(array_merge($tmp,$product3)));
+		
+        $loop_arr = $this->model->hasloop($tmp);//取出还有下一步反应的物质
         
+        if(empty($loop_arr)){
+        	$loop_arr = array();
+        }else{
+        	$loop_arr = array_column($loop_arr, 'r_reactant1');
+        }
         if(!empty($data)){
-        	$tmp_arr = array('CO','HO2','CO2','NO','NO2');
         	foreach ($data as $k=>&$v){
-        		if(in_array($v['r_product2'], $tmp_arr)){
+        		if(!in_array($v['r_product1'], $loop_arr)){
+        			$v['p_1'] = 0;
+        		}else{
+        			$v['p_1'] = 1;//显示链接点击
+        		}
+        		if(!in_array($v['r_product2'], $loop_arr)){
         			$v['p_2'] = 0;
         		}else{
         			$v['p_2'] = 1;//显示链接点击
         		}
-        		if(in_array($v['r_product3'], $tmp_arr)){
+        		if(!in_array($v['r_product3'], $loop_arr)){
         			$v['p_3'] = 0;
         		}else{
         			$v['p_3'] = 1;//显示链接点击
@@ -97,6 +113,7 @@ class MainController extends Controller {
         }
         $result = $this->deal_data($arr,$marks);
         $result = array_values($result);
+
         if(!empty($result)){
             $tmp = array();
             foreach ($result as $k=>&$v){

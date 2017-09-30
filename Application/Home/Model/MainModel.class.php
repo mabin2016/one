@@ -25,7 +25,21 @@ class MainModel extends Model {
 	 * @return array
 	 */
 	public function reactionList( $map ) {
-		$data = M()->table(C('DB_PREFIX').'compound_reaction' )->where( $map )->select();
+		$group = "r_reactant1,r_reactant2,r_reactant3,r_product1,r_product2,r_product3"; 
+		$data = M()->table(C('DB_PREFIX').'compound_reaction' )->where($map)->group($group)->select();
+		return $data;
+	}
+
+	/**
+	 * 取出还有下一步反应的物质
+	 * @return array
+	 */
+	public function hasloop($arr) {
+		if(empty($arr)){
+			return array();
+		}
+		$where['r_reactant1'] = array('in',$arr);
+		$data = M()->table(C('DB_PREFIX').'compound_reaction' )->field(array('r_reactant1'))->where($where)->group('r_reactant1')->select();
 		return $data;
 	}
 
@@ -55,9 +69,10 @@ class MainModel extends Model {
 			"a.r_product3",
 			"IFNULL(a.r_kt,'') as r_kt"
 		);
+		$group = "a.r_reactant1,a.r_reactant2,a.r_reactant3,a.r_product1,a.r_product2,a.r_product3";
 		$data = M()->table(C('DB_PREFIX').'compound_reaction' )->alias("a")
-			->join(C('DB_PREFIX')."compound as b on a.r_reactant1 = b.c_chemicals")
-			->field($field)->where( $map )->select();
+					->join(C('DB_PREFIX')."compound as b on a.r_reactant1 = b.c_chemicals")
+					->field($field)->group($group)->where($map)->select();
 		return $data;
 	}
 

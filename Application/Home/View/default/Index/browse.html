@@ -128,9 +128,13 @@ return false;
 						<td>
 							<table class="speciesExpr">
 								<tbody><tr>
+									{{#if (ne r_product2 null)}}
 									<td class="species">
+										{{#if (eq p_1 0)}}
+												{{r_product1}}
+										{{else}}
 										<a href="browse.html?species={{r_product1}}">
-											<img src="C2H5O.png" alt=""><br>
+											<img src="__PUBLIC__/images/C2H5OH.jpg" alt=""><br>
 											{{r_product1}}
 										</a>
 										<form action="#" method="post">
@@ -138,7 +142,10 @@ return false;
 											<input value="/browse.html?species={{r_product1}}" type="hidden" name="url">
 											<input type="button" value="Mark">
 										</form>
+										{{/if}}
+
 									</td>
+									{{/if}}
 
 									{{#if (ne r_product2 null)}}
 									<td class="op">+</td>
@@ -147,7 +154,7 @@ return false;
 												{{r_product2}}
 										{{else}}
 											<a href="browse.html?species={{r_product2}}">
-												<img src="C2H5O.png" alt=""><br>
+												<img src="__PUBLIC__/images/C2H5O.jpg" alt=""><br>
 												{{r_product2}}
 											</a>
 											<form action="#" method="post">
@@ -166,7 +173,7 @@ return false;
 														{{r_product3}}
 													{{else}}
 														<a href="browse.html?species={{r_product3}}">
-															<img src="C2H5O.png" alt=""><br>
+															<img src="__PUBLIC__/images/C2H5O.jpg" alt=""><br>
 															{{r_product3}}
 														</a>
 														<form action="#" method="post">
