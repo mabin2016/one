@@ -246,7 +246,6 @@ class AdminController extends Controller {
                 $where['is_dev']    =   0;
             }
             $menus['main']  =   M('Menu')->where($where)->order('sort asc')->select();
-
             $menus['child'] = array(); //设置子节点
 
             //高亮主菜单

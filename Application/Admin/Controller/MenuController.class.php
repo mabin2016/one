@@ -50,7 +50,6 @@ class MenuController extends AdminController {
 
     /**
      * 新增菜单
-     * @author yangweijie <yangweijiester@gmail.com>
      */
     public function add(){
         if(IS_POST){
@@ -209,7 +208,6 @@ class MenuController extends AdminController {
 
     /**
      * 菜单排序
-     * @author huajie <banhuajie@163.com>
      */
     public function sort(){
         if(IS_GET){

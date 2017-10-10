@@ -8,23 +8,24 @@
 				<td valign="top">
 				  <div>
 				      <p>
-				      	<a href="http://mcm.leeds.ac.uk/MCMv3.3.1/search.html?applet=1">Draw Structure</a>
+				      	<a href="#">Draw Structure</a>
 				      </p>
 				      Enter Search Term<br>
 				      <input type="text" class="search_val" id="search_val" value="{$content}" >
 				      <input type="button" class="search_item" value="search" tag="btn"><br>
 				  </div>
-				  <p><a href="http://mcm.leeds.ac.uk/MCMv3.3.1/mass_search.html">Molecular weight search</a></p>
-				  <p><a href="http://mcm.leeds.ac.uk/MCMv3.3.1/advanced_search.html">Advanced Search</a></p>
+				 <!--  <p><a href="http://mcm.leeds.ac.uk/MCMv3.3.1/mass_search.html">Molecular weight search</a></p>
+				  <p><a href="http://mcm.leeds.ac.uk/MCMv3.3.1/advanced_search.html">Advanced Search</a></p>-->
 				</td>
-				<td class="searchComment">
+				<!--  <td class="searchComment">
 				  <p>Search by MCM name, <a href="http://www.daylight.com/dayhtml/smiles/">SMILES</a> string, <a href="http://www.daylight.com/dayhtml/doc/theory/theory.smarts.htmlSMARTS"></a> pattern, <a href="http://www.iupac.org/inchi/">InChI</a> or draw your strucutre, click the link to start the applet (Java required). The search function returns both full and partial matches.</p>
-				</td>
+				</td> -->
 	      	</tr>
 	    </tbody>
 	</table>
 	<style style="text/css">
-		.searchResults{display:none;}
+		.searchResults,#searchResults{display:none;}
+		DIV#searchResults ul li{display:list-item;}
 	</style>
     
    	<script type="text/javascript">
@@ -58,7 +59,7 @@
 							var data = d.data;
 							var total = d.total;
 							var current_page = d.current_page;
-							var h = '';
+							var h = list = '';
 							if(total >= 2){
 								var length = Math.ceil(total/pageSize);
 								for(var i=1;i<=length;i++){
@@ -96,9 +97,11 @@
 												</tbody>\
 											</table>\
 										</li>';
+								list += '<li>'+data[i].c_chemicals+'</li>';	
 							}
 							h += '</ul>';
 							$("#result_content").html(h);
+							$("#searchResults div ul").html(list);
 						}else{
 							$("#result_content").html('No result!');
 						}
