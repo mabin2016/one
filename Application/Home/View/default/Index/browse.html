@@ -92,18 +92,20 @@ return false;
 								<tbody><tr>
 									<td class="species">
 										<a>
-											<img src="__PUBLIC__/images/C2H5OH.jpg" style="width:80px;height:40px;"><br>
+											<img src="__PUBLIC__/images/chemical/{{r_reactant1}}.png" style="width:80px;height:40px;"><br>
 											{{r_reactant1}}
 										</a>
 										<input type="button" value="Mark" class="addMarks" tag="{{r_reactant1}}">
 
 									</td>
+									{{#if (ne r_reactant2 null)}}
 									<td class="op">+</td>
 									<td class="species">
 										<a>
 											{{r_reactant2}}
 										</a>
 									</td>
+									{{/if}}
 								</tr>
 								</tbody></table>
 						</td>
@@ -128,19 +130,19 @@ return false;
 						<td>
 							<table class="speciesExpr">
 								<tbody><tr>
-									{{#if (ne r_product2 null)}}
+									{{#if (ne r_product1 null)}}
 									<td class="species">
 										{{#if (eq p_1 0)}}
 												{{r_product1}}
 										{{else}}
 										<a href="browse.html?species={{r_product1}}">
-											<img src="__PUBLIC__/images/C2H5OH.jpg" alt=""><br>
+											<img src="__PUBLIC__/images/chemical/{{r_product1}}.png" width="150" height="50"><br>
 											{{r_product1}}
 										</a>
 										<form action="#" method="post">
 											<input value="{{r_product1}}" type="hidden" name="marks">
 											<input value="/browse.html?species={{r_product1}}" type="hidden" name="url">
-											<input type="button" value="Mark">
+											<input type="button" value="Mark" class="addMarks" tag="{{r_product1}}">
 										</form>
 										{{/if}}
 
@@ -154,13 +156,13 @@ return false;
 												{{r_product2}}
 										{{else}}
 											<a href="browse.html?species={{r_product2}}">
-												<img src="__PUBLIC__/images/C2H5O.jpg" alt=""><br>
+												<img src="__PUBLIC__/images/chemical/{{r_product2}}.png" width="150" height="50"><br>
 												{{r_product2}}
 											</a>
 											<form action="#" method="post">
 												<input value="{{r_product2}}" type="hidden" name="marks">
 												<input value="/browse.html?species={{r_product2}}" type="hidden" name="url">
-												<input type="button" value="Mark">
+												<input type="button" value="Mark" class="addMarks" tag="{{r_product2}}">
 											</form>
 										{{/if}}
 									</td>
@@ -173,13 +175,13 @@ return false;
 														{{r_product3}}
 													{{else}}
 														<a href="browse.html?species={{r_product3}}">
-															<img src="__PUBLIC__/images/C2H5O.jpg" alt=""><br>
+															<img src="__PUBLIC__/images/chemical/{{r_product3}}.png" width="150" height=50"><br>
 															{{r_product3}}
 														</a>
 														<form action="#" method="post">
 															<input value="{{r_product3}}" type="hidden" name="marks">
 															<input value="/browse.html?species={{r_product3}}" type="hidden" name="url">
-															<input type="button" value="Mark">
+															<input type="button" value="Mark" class="addMarks" tag="{{r_product3}}">
 														</form>
 													{{/if}}
 												</td>
