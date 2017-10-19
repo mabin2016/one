@@ -1,0 +1,21 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>导入化合物Excel表</h2>
+	</div>
+	<div class="cf">
+		<div class="fl">
+			<div style="float:left;width:500px;">
+				<form method="post" action="{:U('Down/import?type=1')}" enctype="multipart/form-data">
+					<h3 style="float:left;">导入化合物Excel表：</h3><input type="file" name="file_stu" style="width: 200px;" />
+					<input type="submit"  class="btn"  value="导入" />
+				</form>
+			</div>
+			<div style="float:left;">
+				<a href="/Application/Admin/View/Template/template.xlsx" style="text-decoration: underline;"  target="_blank" ><em>下载订单导入模板</em></a>
+			</div>
+		</div>
+	</div>
+</block>

@@ -227,4 +227,78 @@ class DownController extends AdminController {
         $this->display('constantList');
     }
 
+    /**
+     * 上传图片页面
+     * @access public 
+     * @return void
+     */
+    public function image(){
+          $this->display('Down/image');
+    }
+
+    /**
+     * 上传pdf页面
+     * @access public 
+     * @return void
+     */
+    public function pdf(){
+          $this->display('Down/image');
+    }
+
+    /**
+     * 保存上传的单个图片
+     * @access public 
+     * @return void
+     */
+    public function upload_image(){
+         $this->ajaxUploadImage(C('IMG_REAL_PATH'));
+    }
+
+    /**
+     * 保存上传的单个pdf
+     * @access public 
+     * @return void
+     */
+    public function upload_pdf(){
+        $this->ajaxUploadImage(C('_REAL_PATH'));
+    }
+
+    public function text(){
+    	$this->display('Down/text');
+    }
+
+    /**
+     * AJAX上传图片 
+     * @access private
+     * @return void
+     */
+    private function ajaxUploadImage($rootPath){
+        if(!isset($_FILES['image']) || !IS_AJAX){
+            exit(json_encode(array('status' => '0', 'info' => 'forbidden')));
+        }
+        $config = array(
+        	'rootPath'=>$rootPath
+        );
+        $upload = new \Think\Upload($config); // 实例化上传类
+        $upload->maxSize  = 5242880; // 设置附件上传大小
+        $upload->exts     = array('jpg', 'gif', 'png', 'jpeg', 'pdf'); // 设置附件上传类型
+        $upload->subName  = ''; //文件夹名称
+        $upload->saveName  = ''; // 保持不变
+        // 上传单个文件
+        $info = $upload->uploadOne($_FILES['image']);
+        if(!$info) { // 上传错误提示错误信息
+            exit(json_encode(array('status' => '0','msg' => $upload->getError())));
+        }else{ // 上传成功，获取上传文件信息
+            $path =  $info['savepath'] . $info['savename'];
+            if(!$_FILES['image']['type'] =='application/pdf'){
+                // 生成缩略图
+                $image = new \Think\Image();
+                $image->open($upload->rootPath.$path);
+            }
+
+            $url = C('IMG_HTTP_DOMAIN') . $info['savename']; // 返回的URL
+            $data = array('status' => '1', 'info' => 'success', 'url' => $url, 'path' => $path);
+            exit_json($data);
+        }
+    }
 }

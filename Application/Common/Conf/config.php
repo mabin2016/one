@@ -67,9 +67,10 @@ return array(
 	'WEB_DOMAIN'		=> $web_domain,
 	'WEB_HTTP_DOMAIN' => 'http://'.$web_domain.'/',
 	'IMG_DOMAIN' => $img_domain,
-	'IMG_HTTP_DOMAIN' => 'http://'.$img_domain.'/Uploads/File/',
-	'IMG_REAL_PATH' => '/data/html/one/Uploads/File/',					//ͼƬ����·��
+	'IMG_HTTP_DOMAIN' => 'http://'.$img_domain.'/img',
+	'IMG_REAL_PATH' => '/var/local/my_share/uploads/one/img/',//图片地址
+	'PDF_REAL_PATH' => '/var/local/my_share/uploads/one/pdf/',//pdf地址
 	'DOWNLOAD_DOMAIN' => $down_domain,
 	'DOWNLOAD_HTTP_DOMAIN' => 'http://'.$down_domain.'/',
-	'DOWNLOAD_REAL_PATH' => '/data/downloads/mihui/',	//����Ŀ¼�����ַ
+	'DOWNLOAD_REAL_PATH' => '/data/downloads/',
 );
