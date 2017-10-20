@@ -233,7 +233,8 @@ class DownController extends AdminController {
      * @return void
      */
     public function image(){
-          $this->display('Down/image');
+//     	p(session());die;
+        $this->display('Down/image');
     }
 
     /**
@@ -282,8 +283,8 @@ class DownController extends AdminController {
         $upload = new \Think\Upload($config); // 实例化上传类
         $upload->maxSize  = 5242880; // 设置附件上传大小
         $upload->exts     = array('jpg', 'gif', 'png', 'jpeg', 'pdf'); // 设置附件上传类型
-        $upload->subName  = ''; //文件夹名称
-        $upload->saveName  = ''; // 保持不变
+        $upload->subName  = array('date', 'Ymd'); //文件夹名称
+//         $upload->saveName  = ''; // 保持不变
         // 上传单个文件
         $info = $upload->uploadOne($_FILES['image']);
         if(!$info) { // 上传错误提示错误信息
@@ -296,9 +297,45 @@ class DownController extends AdminController {
                 $image->open($upload->rootPath.$path);
             }
 
-            $url = C('IMG_HTTP_DOMAIN') . $info['savename']; // 返回的URL
+            $url = C('IMG_HTTP_DOMAIN') . $info['savepath'] . $info['savename']; // 返回的URL
             $data = array('status' => '1', 'info' => 'success', 'url' => $url, 'path' => $path);
             exit_json($data);
         }
+    }
+
+    /**
+     * 保存上传的图片
+     */
+    public function save_image(){
+    	$c_img = get_var_value( 'path' );
+    	$id = get_var_value( 'id' );
+    	$map = array();
+        if(!empty($c_img)){
+        	$map['c_img']  =  $c_img;
+        }
+        
+        if($res !== false){
+        	//记录行为
+        	action_log('update_category', 'category', $cate_id, UID);
+        	$this->success('删除分类成功！');
+        }else{
+        	$this->error('删除分类失败！');
+        }
+        
+        if ( $res !== false ){
+        	addLog( "更改主订单项目编号成功，res:{$res},id:{$id}" );
+        	output_data( '修改成功 !' );
+        }else{
+        	addLog( "更改主订单项目编号失败，res:{$res},id:{$id}" );
+        	output_data( '修改失败 !',-1 );
+        }
+        $order = "id asc";
+        $list   =   $this->lists('Constant', $map, $order);
+        foreach ($list as $key=>$value){
+            $list[$key]['c_add_time']    =   date("Y-m-d H:i:s",$value['c_add_time']);
+        }
+        $this->assign('_list', $list);
+        $this->meta_title = '常量列表';
+        $this->display('constantList');
     }
 }

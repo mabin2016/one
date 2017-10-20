@@ -956,7 +956,7 @@ function get_stemma($pids,Model &$model, $field='id'){
  * @description: 检测变量是否为空
  * @param: mixed 需要判断变量
  * @return: boolean
- * @author: quanzelin
+
  * @create: 2012-05-04 14:26:50
  **/
 function is_empty($var_name) {
@@ -1001,7 +1001,7 @@ function is_empty($var_name) {
  * @description: 过滤非安全字符
  * @param: mixed 被过滤的原字符串或数组
  * @return: mixed
- * @author: quanzelin
+
  * @create: 2012-05-04 14:26:50
  **/
 function filter_string($string) {
@@ -1024,7 +1024,7 @@ function filter_string($string) {
  * @param: string 表单name参数名称
  * @param: boolean 是否过滤字符串安全
  * @return: mixed
- * @author: quanzelin
+
  * @create: 2012-05-04 14:26:50
  **/
 function get_var_get($var_name, $is_filter = TRUE) {
@@ -1040,7 +1040,7 @@ function get_var_get($var_name, $is_filter = TRUE) {
  * @param: string 表单name参数名称
  * @param: boolean 是否过滤字符串安全
  * @return: mixed
- * @author: quanzelin
+
  * @create: 2012-05-04 14:26:50
  **/
 function get_var_post($var_name, $is_filter = TRUE) {
@@ -1057,7 +1057,7 @@ function get_var_post($var_name, $is_filter = TRUE) {
  * @param: boolean 是否过滤字符串安全
  * @param: boolean 是否优先获取POST
  * @return: mixed
- * @author: quanzelin
+
  * @create: 2012-05-04 14:26:50
  **/
 function get_var_value($var_name, $is_filter = TRUE, $is_post = TRUE) {
@@ -1078,7 +1078,6 @@ function get_var_value($var_name, $is_filter = TRUE, $is_post = TRUE) {
  * @description: 格式化打印
  * @param: mixed
  * @return: string
- * @author: quanzelin
  * @create: 2012-05-04 14:26:50
  **/
 function p($a){
@@ -1092,10 +1091,48 @@ function p($a){
  * @description: 将数组转为json格式并退出脚本
  * @param: mixed
  * @return: string
- * @author: quanzelin
  * @create: 2015-05-04 14:26:50
  **/
 function exit_json( Array $arr ){
 	ob_clean();
 	exit(json_encode( $arr ) );
 };
+
+/**
+ * 操作记录日志函数
+ * @param string $log_content
+ * @param int $act_type 操作类型(0-其他 1-添加 2-修改 3-审核 4-删除)
+ */
+function addLog($log_content = '',$act_type = 0){
+	$module_name = MODULE_NAME;
+	if($module_name == 'Manager'){
+		$a = proCookie('am_user');//记录到cookie了
+		$user_id = $a['manager_id'];
+		$log_name = $a['account'];
+	}elseif($module_name == 'Pro'){
+		$str = sysCrypt(session('adv_user_info'),2, C('YSY_KEY'));
+		$arr = json_decode($str,true);
+		$user_id = empty($arr['a_u_id']) ? 0 : $arr['a_u_id'];
+		$log_name = empty($arr['a_u_name']) ? '' : $arr['a_u_name'];
+	}elseif($module_name == 'Med'){
+		$user_id = session('userinfo.m_u_id');
+		$log_name = session('userinfo.m_u_name');
+	}elseif($module_name == 'Adminmh'){
+		$user_id = session('manager.id');
+		$log_name = session('manager.account');
+	}else{
+		$user_id = 0;
+		$log_name = '';
+	}
+
+	$data['module_name'] = $module_name;
+	$data['controller_name'] = CONTROLLER_NAME;
+	$data['action_name'] = ACTION_NAME;
+	$data['act_type'] = (int)$act_type;
+	$data['user_id'] = $user_id>0?$user_id:0;
+	$data['log_name'] = $log_name ?: '';
+	$data['act_time'] = time();
+	$data['log_content'] = $log_content;
+	$data['other_info'] = get_ip().";".$_SERVER['HTTP_USER_AGENT'];
+	return M()->table(C('DB_PREFIX').'log')->data($data)->add();
+}

@@ -1,12 +1,13 @@
 <extend name="Public/base" />
 
-<style>
-.seccuess_font{color:red;font-size:14px;line-heigth:18px;margin:5px;}
-</style>
+
 <block name="body">
+	<style>
+	.seccuess_font{color:red;font-size:14px;line-heigth:18px;margin:5px;}
+	</style>
 	<!-- 标题栏 -->
 	<div class="main-title">
-		<h2>导入化合物Excel表</h2>
+		<h2>上图化合物图片</h2>
 	</div>
 	<div class="cf">
 		<div class="fl">
@@ -29,7 +30,6 @@
         
         function ajaxFileUpload() {
 	        $('#chemical_img').fileupload({
-	            //url: "/Down/upload_image",
 				url:"{:U('/Admin/Down/upload_image')}",
 	            dataType: 'json',	
 	            maxFileSize: 5242880,
@@ -41,7 +41,7 @@
 	                        <div class="">\
 	                            <img src="' + res.url + '" />\
 	                        </div>\
-	                    ';     
+	                    ';
 	                     $('#success').html(_html);
 	                } else {
 	                    alert('上传失败，请重新操作!');
@@ -51,8 +51,6 @@
         }
         
     </script>
-	
-	
 </block>
 
 	
