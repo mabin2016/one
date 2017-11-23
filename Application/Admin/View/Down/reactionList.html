@@ -28,6 +28,7 @@
 				<th class="">kT</th>
 				<th class="">Doc</th>
 				<th class="">添加时间</th>
+				<th class="">操作</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -43,6 +44,10 @@
 						<td>{$vo.r_kt}</td>
 						<td><a href="{$vo.r_document_url}" target="_blank">{$vo.r_document}</a></td>
 						<td>{$vo.r_add_time}</td>
+						<td>
+							<a href="{:U('Down/react_pdf')}?id={$vo.id}">编辑DOC文件</a>
+							<a href="{:U('Down/pdf2')}?id={$vo.id}">aaa</a>
+						</td>
 					</tr>
 				</volist>
 				<else/>

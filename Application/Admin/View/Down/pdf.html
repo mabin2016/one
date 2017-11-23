@@ -1,21 +1,92 @@
 <extend name="Public/base" />
-
+<style type="text/css">
+.seccuess_font {margin:auto 20px;padding:20px;}
+</style>
 <block name="body">
 	<!-- 标题栏 -->
 	<div class="main-title">
-		<h2>导入化合物Excel表</h2>
+		<h2>上传化合物PDF文件</h2>
 	</div>
 	<div class="cf">
 		<div class="fl">
 			<div style="float:left;width:500px;">
-				<form method="post" action="{:U('Down/import?type=1')}" enctype="multipart/form-data">
-					<h3 style="float:left;">导入化合物Excel表：</h3><input type="file" name="file_stu" style="width: 200px;" />
-					<input type="submit"  class="btn"  value="导入" />
-				</form>
-			</div>
-			<div style="float:left;">
-				<a href="/Application/Admin/View/Template/template.xlsx" style="text-decoration: underline;"  target="_blank" ><em>下载订单导入模板</em></a>
+					<div>
+						<h3 style="float:left;">上传化合物PDF文件：</h3>
+						<input type="file" value="" name="image" id="chemical_pdf" style="width:200px;" />
+					</div>
+					<form method="post" action="" enctype="multipart/form-data" onsubmit="return false;">
+						<div class="content">
+							<div id="success">
+								
+							</div>
+						</div>
+					</form>
 			</div>
 		</div>
+		
+	    <script type="text/javascript">
+	        $(function () {
+	        	ajaxFileUpload();
+	        	var mainPanel = $('body');
+    			var pdf = function() {};
+    			pdf.prototype = {
+    				init: function() {
+    					this.eventProxy();
+    				},
+    				eventProxy: function() {
+    					var self = this;
+    					mainPanel.on('click','#confirm_pdf',function(e) {
+    						e.stopPropagation();
+    						self.submit();
+    						return false;
+    					});
+    				},
+    				submit: function() {
+    					var id = Base.queryString('id');
+    					var pdf_path = $("#pdf_path").val();
+    					var self = this;
+    					var url = "{:U('/Admin/Down/save_pdf')}";
+    					var render = function (d){
+    						if(d.status != -1){
+    							alert("提交成功!");
+    						}else{
+    							alert("提交失败!");
+    						}
+    					}
+   						var d = {'id':id,'pdf_path':pdf_path};
+   						Base.goAjax(url,d,render);
+    					return false;
+    				}
+    			}	
+    			var p1=new pdf().init();
+	        })
+	        
+	        function ajaxFileUpload() {
+		        $('#chemical_pdf').fileupload({
+					url:"{:U('/Admin/Down/upload_pdf')}",
+		            dataType: 'json',	
+		            maxFileSize: 5242880,
+		            done: function(e, data) {
+		            	var res = data.result;
+		                if (typeof res.status !== 'undefined' && res.status == '1') {
+		                	var _html = '\
+		                			<div>\
+			                        	<p class="seccuess_font">\
+				                			<font>上传成功!</font>\
+				                			<a href="'+res.url+'" target="_blank">查看文件</a>\
+			                				<input type="hidden" name="pdf_path" id="pdf_path" value="'+res.path+'" />\
+			                				<input type="submit" value="确认修改"  class="btn" id="confirm_pdf" />\
+				                		</p>\
+			                        </div>\
+		                    ';
+		                     $('#success').html(_html);
+		                } else {
+		                    alert('上传失败，请重新操作!');
+		               }
+		            }
+		        });
+	        }
+	        
+	    </script>
 	</div>
 </block>

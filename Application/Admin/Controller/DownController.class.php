@@ -73,16 +73,16 @@ class DownController extends AdminController {
             $log .= "res：$res,res2：$res2,";
             if($res !== false && $res2 !== false){
                 $log .= '成功!';
-                action_log('update_menu', 'index', null, UID,$log);
+                addLog($log);
                 return true;
             }else{
                 $log .= '失败!';
-                action_log('update_menu', 'index', null, UID,$log);
+                addLog($log);
                 return false;
             }
         }else{
             $log .= '失败,data不存在!';
-            action_log('update_menu', 'index', null, UID, $log);
+            addLog($log);
             return false;
         }
     }
@@ -116,16 +116,16 @@ class DownController extends AdminController {
             $log .= "res：$res,res2：$res2,";
             if($res !== false && $res2 !== false){
                 $log .= '成功!';
-                action_log('update_menu', 'index', null, UID,$log);
+                addLog($log);
                 return true;
             }else{
                 $log .= '失败!';
-                action_log('update_menu', 'index', null, UID,$log);
+                addLog($log);
                 return false;
             }
         }else{
             $log .= '失败,data不存在!';
-            action_log('update_menu', 'index', null, UID, $log);
+            addLog($log);
             return false;
         }
     }
@@ -152,16 +152,16 @@ class DownController extends AdminController {
             $log .= "res：$res,res2：$res2,";
             if($res !== false && $res2 !== false){
                 $log .= '成功!';
-                action_log('update_menu', 'index', null, UID,$log);
+        		addLog($log);
                 return true;
             }else{
-                $log .= '失败!';
-                action_log('update_menu', 'index', null, UID,$log);
+        		addLog($log);
+        		addLog( "导入常量成功，log:{$log}" );
                 return false;
             }
         }else{
             $log .= '失败,data不存在!';
-            action_log('update_menu', 'index', null, UID, $log);
+        	addLog($log);
             return false;
         }
     }
@@ -233,7 +233,6 @@ class DownController extends AdminController {
      * @return void
      */
     public function image(){
-//     	p(session());die;
         $this->display('Down/image');
     }
 
@@ -243,7 +242,16 @@ class DownController extends AdminController {
      * @return void
      */
     public function pdf(){
-          $this->display('Down/image');
+          $this->display('Down/pdf');
+    }
+
+    /**
+     * 反应图片页面
+     * @access public 
+     * @return void
+     */
+    public function react_pdf(){
+        $this->display('Down/react_pdf');
     }
 
     /**
@@ -252,7 +260,7 @@ class DownController extends AdminController {
      * @return void
      */
     public function upload_image(){
-         $this->ajaxUploadImage(C('IMG_REAL_PATH'));
+         $this->ajaxUploadImage(C('IMG_REAL_PATH'),C('IMG_HTTP_DOMAIN'));
     }
 
     /**
@@ -261,7 +269,7 @@ class DownController extends AdminController {
      * @return void
      */
     public function upload_pdf(){
-        $this->ajaxUploadImage(C('_REAL_PATH'));
+        $this->ajaxUploadImage(C('PDF_REAL_PATH'),C('PDF_HTTP_DOMAIN'));
     }
 
     public function text(){
@@ -273,7 +281,7 @@ class DownController extends AdminController {
      * @access private
      * @return void
      */
-    private function ajaxUploadImage($rootPath){
+    private function ajaxUploadImage($rootPath,$domain){
         if(!isset($_FILES['image']) || !IS_AJAX){
             exit(json_encode(array('status' => '0', 'info' => 'forbidden')));
         }
@@ -281,10 +289,12 @@ class DownController extends AdminController {
         	'rootPath'=>$rootPath
         );
         $upload = new \Think\Upload($config); // 实例化上传类
-        $upload->maxSize  = 5242880; // 设置附件上传大小
+//      $upload->maxSize  = 52428800000; // 设置附件上传大小
         $upload->exts     = array('jpg', 'gif', 'png', 'jpeg', 'pdf'); // 设置附件上传类型
         $upload->subName  = array('date', 'Ymd'); //文件夹名称
-//         $upload->saveName  = ''; // 保持不变
+        $upload->saveName  = ''; // 保持不变
+        $upload->replace  = true; //存在同名是否覆盖
+        
         // 上传单个文件
         $info = $upload->uploadOne($_FILES['image']);
         if(!$info) { // 上传错误提示错误信息
@@ -297,7 +307,7 @@ class DownController extends AdminController {
                 $image->open($upload->rootPath.$path);
             }
 
-            $url = C('IMG_HTTP_DOMAIN') . $info['savepath'] . $info['savename']; // 返回的URL
+            $url =  $domain . $info['savepath'] . $info['savename']; // 返回的URL
             $data = array('status' => '1', 'info' => 'success', 'url' => $url, 'path' => $path);
             exit_json($data);
         }
@@ -306,36 +316,91 @@ class DownController extends AdminController {
     /**
      * 保存上传的图片
      */
-    public function save_image(){
-    	$c_img = get_var_value( 'path' );
+    public function save_img(){
+    	$c_img = get_var_value( 'img_path' );
     	$id = get_var_value( 'id' );
-    	$map = array();
+        if(empty($id)){
+        	$res = array('status'=>-1,'msg'=> '缺少系统参数!');
+        	exit_json($res);
+        }
         if(!empty($c_img)){
-        	$map['c_img']  =  $c_img;
+        	$data['c_img']  =  $c_img;
+        }else{
+        	$res = array('status'=>-1,'msg'=> '请先上传图片!');
+        	exit_json($res);
         }
         
+        $where['id'] = $id;
+        $res = M()->table(C('DB_PREFIX').'compound')->where($where)->save($data);
+
         if($res !== false){
-        	//记录行为
-        	action_log('update_category', 'category', $cate_id, UID);
-        	$this->success('删除分类成功！');
+        	addLog( "上传图片成功，res:{$res},id:{$id},c_img:{$c_img}" );
+        	$this->success('操作成功！');
         }else{
-        	$this->error('删除分类失败！');
+        	addLog( "上传图片失败，res:{$res},id:{$id},c_img:{$c_img}" );
+        	$this->error('操作失败！');
+        }
+    }
+
+    /**
+     * 保存上传的pdf文件
+     */
+    public function save_pdf(){
+    	$c_pdf = get_var_value( 'pdf_path' );
+    	$id = get_var_value( 'id' );
+        if(empty($id)){
+        	$res = array('status'=>-1,'msg'=> '缺少系统参数!');
+        	exit_json($res);
+        }
+        if(!empty($c_pdf)){
+        	$data['c_document']  =  $c_pdf;
+        }else{
+        	$res = array('status'=>-1,'msg'=> '请先上传pdf文件!');
+        	exit_json($res);
         }
         
-        if ( $res !== false ){
-        	addLog( "更改主订单项目编号成功，res:{$res},id:{$id}" );
-        	output_data( '修改成功 !' );
+        $where['id'] = $id;
+        $res = M()->table(C('DB_PREFIX').'compound')->where($where)->save($data);
+
+        if($res !== false){
+        	addLog( "上传pdf文件成功，res:{$res},id:{$id},c_pdf:{$c_pdf}" );
+        	$res = array('status'=>1,'msg'=> '操作成功!');
+        	exit_json($res);
         }else{
-        	addLog( "更改主订单项目编号失败，res:{$res},id:{$id}" );
-        	output_data( '修改失败 !',-1 );
+        	addLog( "上传pdf文件失败，res:{$res},id:{$id},c_pdf:{$c_pdf}" );
+        	$res = array('status'=>-1,'msg'=> '操作失败!');
+        	exit_json($res);
         }
-        $order = "id asc";
-        $list   =   $this->lists('Constant', $map, $order);
-        foreach ($list as $key=>$value){
-            $list[$key]['c_add_time']    =   date("Y-m-d H:i:s",$value['c_add_time']);
+    }
+
+    /**
+     * 保存反应上传的图片
+     */
+    public function save_react_pdf(){
+    	$c_pdf = get_var_value( 'react_pdf_path' );
+    	$id = get_var_value( 'id' );
+        if(empty($id)){
+        	$res = array('status'=>-1,'msg'=> '缺少系统参数!');
+        	exit_json($res);
         }
-        $this->assign('_list', $list);
-        $this->meta_title = '常量列表';
-        $this->display('constantList');
+        if(!empty($c_pdf)){
+        	$data['r_document']  =  $c_pdf;
+        }else{
+        	$res = array('status'=>-1,'msg'=> '请先上传pdf文件!');
+        	exit_json($res);
+        }
+        
+        $where['id'] = $id;
+        $res = M()->table(C('DB_PREFIX').'compound_reaction')->where($where)->save($data);
+
+        if($res !== false){
+        	addLog( "上传反应pdf文件成功，res:{$res},id:{$id},c_pdf:{$c_pdf}" );
+        	$res = array('status'=>1,'msg'=> '操作成功!');
+        	exit_json($res);
+        }else{
+        	addLog( "上传反应pdf文件失败，res:{$res},id:{$id},c_pdf:{$c_pdf}" );
+        	$res = array('status'=>-1,'msg'=> '操作失败!');
+        	exit_json($res);
+        }
     }
 }

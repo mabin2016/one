@@ -46,6 +46,4 @@ class DownModel extends Model {
         $res = M()->table($table)->where('1')->delete();
         return $res;
     }
-
-
 }

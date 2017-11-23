@@ -25,7 +25,7 @@ class MainModel extends Model {
 	 * @return array
 	 */
 	public function reactionList( $map ) {
-		$group = "r_reactant1,r_reactant2,r_reactant3,r_product1,r_product2,r_product3"; 
+		$group = "id,r_reactant1,r_reactant2,r_reactant3,r_product1,r_product2,r_product3"; 
 		$data = M()->table(C('DB_PREFIX').'compound_reaction' )->where($map)->group($group)->select();
 		return $data;
 	}

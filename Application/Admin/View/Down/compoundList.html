@@ -31,6 +31,7 @@
 				<th class="">Image</th>
 				<th class="">Document</th>
 				<th class="">添加时间</th>
+				<th class="">操作</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -49,6 +50,10 @@
 						<td><a href="{$vo.c_img_url}" target="_blank">{$vo.c_img}</a></td>
 						<td><a href="{$vo.c_document_url}" target="_blank">{$vo.c_document}</a></td>
 						<td>{$vo.c_add_time}</td>
+						<td>
+							<a href="{:U('Down/image')}?id={$vo.id}">编辑图片</a>
+							<a href="{:U('Down/pdf')}?id={$vo.id}">编辑DOC文件</a>
+						</td>
 					</tr>
 				</volist>
 				<else/>

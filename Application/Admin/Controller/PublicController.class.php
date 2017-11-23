@@ -1,24 +1,14 @@
 <?php
-// +----------------------------------------------------------------------
-// | OneThink [ WE CAN DO IT JUST THINK IT ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2013 http://www.onethink.cn All rights reserved.
-// +----------------------------------------------------------------------
-// | Author: 麦当苗儿 <zuojiazi@vip.qq.com> <http://www.zjzit.cn>
-// +----------------------------------------------------------------------
-
 namespace Admin\Controller;
 use User\Api\UserApi;
 
 /**
  * 后台首页控制器
- * @author 麦当苗儿 <zuojiazi@vip.qq.com>
  */
 class PublicController extends \Think\Controller {
 
     /**
      * 后台用户登录
-     * @author 麦当苗儿 <zuojiazi@vip.qq.com>
      */
     public function login($username = null, $password = null, $verify = null){
         if(IS_POST){
@@ -34,7 +24,7 @@ class PublicController extends \Think\Controller {
                 $Member = D('Member');
                 if($Member->login($uid)){ //登录用户
                     //TODO:跳转到登录前页面
-                    $this->success('登录成功！', U('Index/index'));
+                    $this->success('登录成功！', U('Down/index'));
                 } else {
                     $this->error($Member->getError());
                 }

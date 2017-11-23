@@ -68,6 +68,7 @@ return array(
 	'WEB_HTTP_DOMAIN' => 'http://'.$web_domain.'/',
 	'IMG_DOMAIN' => $img_domain,
 	'IMG_HTTP_DOMAIN' => 'http://'.$img_domain.'/img',
+	'PDF_HTTP_DOMAIN' => 'http://'.$img_domain.'/pdf/',
 	'IMG_REAL_PATH' => '/var/local/my_share/uploads/one/img/',//图片地址
 	'PDF_REAL_PATH' => '/var/local/my_share/uploads/one/pdf/',//pdf地址
 	'DOWNLOAD_DOMAIN' => $down_domain,

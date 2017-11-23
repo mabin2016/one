@@ -1,21 +1,18 @@
 <extend name="Public/base" />
-
-
 <block name="body">
 	<style>
 	.seccuess_font{color:red;font-size:14px;line-heigth:18px;margin:5px;}
 	</style>
 	<!-- 标题栏 -->
 	<div class="main-title">
-		<h2>上图化合物图片</h2>
+		<h2>上图反应物文件</h2>
 	</div>
 	<div class="cf">
 		<div class="fl">
-			<div style="float:left;width:500px;" id="show_img">
+			<div style="float:left;width:500px;" id="show_react_pdf">
 					<div>
-						<h3 style="float:left;">上图化合物图片：</h3>
-						<p><input type="file" value="" name="image" id="chemical_img" style="width: 200px;" /></p>
-						<p>只允许上传png图片</p>
+						<h3 style="float:left;">上图反应物文件：</h3>
+						<p><input type="file" value="" name="image" id="chemical_react_pdf" style="width: 200px;" /></p>
 					</div>
 					<form method="post" action="" enctype="multipart/form-data" onsubmit="return false;">
 						<div id="success">
@@ -30,14 +27,14 @@
         $(function () {
         	ajaxFileUpload();
         	var mainPanel = $('body');
-			var img = function() {};
-			img.prototype = {
+			var react_pdf = function() {};
+			react_pdf.prototype = {
 				init: function() {
 					this.eventProxy();
 				},
 				eventProxy: function() {
 					var self = this;
-					mainPanel.on('click','#confirm_img',function(e) {
+					mainPanel.on('click','#confirm_react_pdf',function(e) {
 						e.stopPropagation();
 						self.submit();
 						return false;
@@ -45,9 +42,9 @@
 				},
 				submit: function() {
 					var id = Base.queryString('id');
-					var img_path = $("#img_path").val();
+					var react_pdf_path = $("#react_pdf_path").val();
 					var self = this;
-					var url = "{:U('/Admin/Down/save_img')}";
+					var url = "{:U('/Admin/Down/save_react_pdf')}";
 					var render = function (d){
 						if(d.status != -1){
 							alert("提交成功!");
@@ -55,27 +52,27 @@
 							alert("提交失败!");
 						}
 					}
-						var d = {'id':id,'img_path':img_path};
+						var d = {'id':id,'react_pdf_path':react_pdf_path};
 						Base.goAjax(url,d,render);
 					return false;
 				}
 			}	
-			var p1=new img().init();
+			var p1=new react_pdf().init();
         })
         
         function ajaxFileUpload() {
-	        $('#chemical_img').fileupload({
-				url:"{:U('/Admin/Down/upload_image')}",
-	            dataType: 'json',	
+	        $('#chemical_react_pdf').fileupload({
+				url:"{:U('/Admin/Down/upload_pdf')}",
+	            dataType: 'json',
 	            maxFileSize: 5242880,
 	            done: function(e, data) {
 	            	var res = data.result;
 	                if (typeof res.status !== 'undefined' && res.status == '1') {
 	                	var _html = '\
-	                		<p class="seccuess_font">上传成功!&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="确认修改" class="btn" id="confirm_img" /></p>\
+	                		<p class="seccuess_font">上传成功!&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="确认修改" class="btn" id="confirm_react_pdf" /></p>\
 	                        <div class="">\
-                				<input type="hidden" name="img_path" id="img_path" value="'+res.path+'" />\
-                				<img src="' + res.url + '" />\
+	                        	<a href="'+res.url+'" target="_blank">查看文件</a>\
+                				<input type="hidden" name="react_pdf_path" id="react_pdf_path" value="'+res.path+'" />\
 	                        </div>\
 	                    ';
 	                     $('#success').html(_html);

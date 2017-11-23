@@ -553,10 +553,8 @@ function ubb($data){
  * @param int $record_id 触发行为的记录id
  * @param int $user_id 执行行为的用户id
  * @return boolean
- * @author huajie <banhuajie@163.com>
  */
 function action_log($action = null, $model = null, $record_id = null, $user_id = null){
-
     //参数检查
     if(empty($action) || empty($model) || empty($record_id)){
         return '参数不能为空';
@@ -1101,38 +1099,31 @@ function exit_json( Array $arr ){
 /**
  * 操作记录日志函数
  * @param string $log_content
- * @param int $act_type 操作类型(0-其他 1-添加 2-修改 3-审核 4-删除)
  */
-function addLog($log_content = '',$act_type = 0){
-	$module_name = MODULE_NAME;
-	if($module_name == 'Manager'){
-		$a = proCookie('am_user');//记录到cookie了
-		$user_id = $a['manager_id'];
-		$log_name = $a['account'];
-	}elseif($module_name == 'Pro'){
-		$str = sysCrypt(session('adv_user_info'),2, C('YSY_KEY'));
-		$arr = json_decode($str,true);
-		$user_id = empty($arr['a_u_id']) ? 0 : $arr['a_u_id'];
-		$log_name = empty($arr['a_u_name']) ? '' : $arr['a_u_name'];
-	}elseif($module_name == 'Med'){
-		$user_id = session('userinfo.m_u_id');
-		$log_name = session('userinfo.m_u_name');
-	}elseif($module_name == 'Adminmh'){
-		$user_id = session('manager.id');
-		$log_name = session('manager.account');
-	}else{
-		$user_id = 0;
-		$log_name = '';
-	}
-
-	$data['module_name'] = $module_name;
-	$data['controller_name'] = CONTROLLER_NAME;
-	$data['action_name'] = ACTION_NAME;
-	$data['act_type'] = (int)$act_type;
+function addLog($log_content = ''){
+	$user_id = is_login();
 	$data['user_id'] = $user_id>0?$user_id:0;
-	$data['log_name'] = $log_name ?: '';
 	$data['act_time'] = time();
 	$data['log_content'] = $log_content;
 	$data['other_info'] = get_ip().";".$_SERVER['HTTP_USER_AGENT'];
-	return M()->table(C('DB_PREFIX').'log')->data($data)->add();
+	return M('Log')->add($data);
+}
+
+function get_ip() {
+	if ($_SERVER['REMOTE_ADDR'])
+		return $_SERVER['REMOTE_ADDR'];
+		elseif ($HTTP_SERVER_VARS["HTTP_X_FORWARDED_FOR"])
+		return $HTTP_SERVER_VARS["HTTP_X_FORWARDED_FOR"];
+		elseif ($HTTP_SERVER_VARS["HTTP_CLIENT_IP"])
+		return $HTTP_SERVER_VARS["HTTP_CLIENT_IP"];
+		elseif ($HTTP_SERVER_VARS["REMOTE_ADDR"])
+		return $HTTP_SERVER_VARS["REMOTE_ADDR"];
+		elseif (getenv("HTTP_X_FORWARDED_FOR"))
+		return getenv("HTTP_X_FORWARDED_FOR");
+		elseif (getenv("HTTP_CLIENT_IP"))
+		return getenv("HTTP_CLIENT_IP");
+		elseif (getenv("REMOTE_ADDR"))
+		return getenv("REMOTE_ADDR");
+		else
+			return '127.0.0.1';
 }
