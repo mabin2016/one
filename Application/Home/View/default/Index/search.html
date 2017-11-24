@@ -79,13 +79,14 @@
 								}else{
 									var m = 'Mark';
 								}
+								//<img src="__PUBLIC__/images/'+data[i].c_chemicals+'.png" style="width:120px;height:50px;"><br>\
 								h += '<li>\
 											<table>\
 												<tbody>\
 														<tr>\
 															<td class="species">\
 															<a href="browse.html?species='+data[i].c_chemicals+'">\
-																<img src="__PUBLIC__/images/'+data[i].c_chemicals+'.png" style="width:120px;height:50px;"><br>\
+																<img src="'data[i].c_img+'" style="width:120px;height:50px;"><br>\
 																<span>'+data[i].c_chemicals+'</span>\
 															</a>\
 															<form action="" method="post">\

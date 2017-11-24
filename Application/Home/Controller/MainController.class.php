@@ -28,6 +28,7 @@ class MainController extends Controller {
                 }else{
                     $data['data'][$k]['is_sel'] = 0;
                 }
+                $data['data'][$k]['c_img'] = C('IMG_HTTP_DOMAIN').$v['c_img'];
             }
             $data['current_page'] = $page;
         }
@@ -74,6 +75,15 @@ class MainController extends Controller {
         			$v['p_3'] = 0;
         		}else{
         			$v['p_3'] = 1;//显示链接点击
+        		}
+        		$v['r_document'] = C('PDF_HTTP_DOMAIN').$v['r_document'];
+        	}
+        }
+        
+        if(!empty($data2)){
+        	foreach ($data2 as $k=>&$v){
+        		if(!empty($v['c_img'])){
+        			$v['c_img'] = C('IMG_HTTP_DOMAIN').$v['c_img'];
         		}
         	}
         }

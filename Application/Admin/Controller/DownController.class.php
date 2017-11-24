@@ -11,27 +11,25 @@ class DownController extends AdminController {
     }
 
     /**
-     * @desc 导入订单
+     * @desc 导入
      * @author: mb
      * @time: 2016-09-21
      */
     public function import(){
         $type = ( int )get_var_value( 'type' );
-        if(empty($type)){
-            $res = array('status'=>-1,'msg'=> '参数错误!');
-            exit_json($res);
-        }
-        if( !isset( $_FILES['file_stu'] ) ){
-            $res = array('status'=>-2,'msg'=> '请选择文件!');
-            exit_json($res);
-        }
+        $jumpUrl = U('Down/index');
         $path = $_FILES['file_stu']['tmp_name'];
+        if(empty($type)){
+            $this->error('参数错误！',$jumpUrl);
+        }
+        if( empty( $path ) ){
+            $this->error('请选择文件！',$jumpUrl);
+        }
         M()->startTrans();//开启事务
         $res = $this->dealSheet1($path);
         $res2 = $this->dealSheet2($path);
         $res3 = $this->dealSheet3($path);
 
-        $jumpUrl = U('Down/index');
         if( $res && $res2 && $res3){
            M()->commit();
            S('ch_data',null);//清楚前端的缓存
@@ -49,11 +47,11 @@ class DownController extends AdminController {
      */
     public function dealSheet1($path){
         $data = $this->importModel->import($path,0);
-        $log = "导入订单sheet0,";
+        $log = "导入化合物sheet0,";
         if(!empty($data)){
-            $arr = array();
+            $tmp_arr = $arr = array();
             foreach ($data as $k=>$v){
-                if(empty($v)){continue;}
+                if(empty($v[0])){continue;}
                 $arr[$k]['id'] = '';
                 $arr[$k]['c_chemicals'] = $v[0];
                 $arr[$k]['c_name1'] = $v[1];
@@ -67,8 +65,10 @@ class DownController extends AdminController {
                 $arr[$k]['c_document'] = $v[9];
                 $arr[$k]['c_add_time'] = time();
                 $arr[$k]['c_is_show'] = 1;
+                $tmp_arr[] = $v[0];
             }
-            $res = $this->model->deleteCompand(1);//先删除
+            $where['c_chemicals'] = array('in',$tmp_arr);
+            $res = $this->model->deleteCompand(1,$where);//先删除
             $res2 = $this->model->addCompand($arr,1);//再添加
             $log .= "res：$res,res2：$res2,";
             if($res !== false && $res2 !== false){
@@ -94,24 +94,26 @@ class DownController extends AdminController {
      */
     public function dealSheet2($path){
         $data = $this->importModel->import($path,1);
-        $log = "导入订单sheet1,";
+        $log = "导入化合反应sheet1,";
         if(!empty($data)){
             $arr = array();
+            $table  = C('DB_PREFIX').'compound_reaction';
             foreach ($data as $k=>$v){
-                if(empty($v)){continue;}
+                if(empty($v[0])){continue;}
                 $arr[$k]['id'] = '';
-                $arr[$k]['r_reactant1'] = $v[0];
-                $arr[$k]['r_reactant2'] = $v[1];
-                $arr[$k]['r_reactant3'] = $v[2];
-                $arr[$k]['r_product1'] = $v[3];
-                $arr[$k]['r_product2'] = $v[4];
-                $arr[$k]['r_product3'] = $v[5];
-                $arr[$k]['r_kt'] = $v[6];
+                $where['r_reactant1'] = $arr[$k]['r_reactant1'] = $v[0];
+                $where['r_reactant2'] = $arr[$k]['r_reactant2'] = $v[1];
+                $where['r_reactant3'] = $arr[$k]['r_reactant3'] = $v[2];
+                $where['r_product1'] = $arr[$k]['r_product1'] = $v[3];
+                $where['r_product2'] = $arr[$k]['r_product2'] = $v[4];
+                $where['r_product3'] = $arr[$k]['r_product3'] = $v[5];
+                $where['r_kt'] = $arr[$k]['r_kt'] = $v[6];
                 $arr[$k]['r_document'] = $v[7];
                 $arr[$k]['r_add_time'] = time();
                 $arr[$k]['r_is_show'] = 1;
+                $res = M()->table($table)->where($where)->delete();
             }
-            $res = $this->model->deleteCompand(2);//先删除
+//             $res = $this->model->deleteCompand(2);//先删除
             $res2 = $this->model->addCompand($arr,2);//再添加
             $log .= "res：$res,res2：$res2,";
             if($res !== false && $res2 !== false){
@@ -137,17 +139,22 @@ class DownController extends AdminController {
      */
     public function dealSheet3($path){
         $data = $this->importModel->import($path,2);
-        $log = "导入订单sheet2,";
+        $log = "导入常量sheet2,";
         if(!empty($data)){
             $arr = array();
+            $table  = C('DB_PREFIX').'constant';
             foreach ($data as $k=>$v){
+            	$where = array();
                 if(empty($v)){continue;}
                 $arr[$k]['id'] = '';
                 $arr[$k]['c_key'] = $v[0];
                 $arr[$k]['c_value'] = $v[1];
                 $arr[$k]['c_add_time'] = time();
+                $where['c_key'] = $v[0];
+                $where['c_value'] = $v[1];
+                $res = M()->table($table)->where($where)->delete();
             }
-            $res = $this->model->deleteCompand(3);//先删除
+//             $res = $this->model->deleteCompand(3);//先删除
             $res2 = $this->model->addCompand($arr,3);//再添加
             $log .= "res：$res,res2：$res2,";
             if($res !== false && $res2 !== false){

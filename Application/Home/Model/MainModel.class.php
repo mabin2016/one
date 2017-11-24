@@ -25,7 +25,7 @@ class MainModel extends Model {
 	 * @return array
 	 */
 	public function reactionList( $map ) {
-		$group = "id,r_reactant1,r_reactant2,r_reactant3,r_product1,r_product2,r_product3"; 
+		$group = "id,r_reactant1,r_reactant2,r_reactant3,r_product1,r_product2,r_product3,r_document"; 
 		$data = M()->table(C('DB_PREFIX').'compound_reaction' )->where($map)->group($group)->select();
 		return $data;
 	}
@@ -49,7 +49,7 @@ class MainModel extends Model {
 	 */
 	public function getCompound( $map ) {
 		if(empty($map)){return '';}
-		$data = M()->table(C('DB_PREFIX').'compound' )->field('c_chemicals,c_name1,c_name2')->where( $map )->find();
+		$data = M()->table(C('DB_PREFIX').'compound' )->field('c_chemicals,c_name1,c_name2,c_img')->where( $map )->find();
 		return $data;
 	}
 

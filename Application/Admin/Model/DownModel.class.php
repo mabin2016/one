@@ -29,7 +29,7 @@ class DownModel extends Model {
     /**
      * 添加化合物
      */
-    function deleteCompand($type = 1){
+    function deleteCompand($type = 1,$where){
         if($type == 1){
             $table  = C('DB_PREFIX').'compound';
         }else if($type == 2){
@@ -43,7 +43,10 @@ class DownModel extends Model {
         if(empty($is)){
             return true;
         }
-        $res = M()->table($table)->where('1')->delete();
+        if(empty($where)){
+            return false;
+        }
+        $res = M()->table($table)->where($where)->delete();
         return $res;
     }
 }
