@@ -31,7 +31,7 @@ class MainController extends Controller {
                 if($v['c_img']){
                 	$data['data'][$k]['c_img'] = C('IMG_HTTP_DOMAIN').$v['c_img'];
                 }else{
-                	$data['data'][$k]['c_img'] = '';
+                	$data['data'][$k]['c_img'] = null;
                 }
             }
             $data['current_page'] = $page;

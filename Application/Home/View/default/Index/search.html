@@ -73,6 +73,7 @@
 							}
 
 							h += '<ul>';
+							list = '';
 							for(var i=0;i<data.length;i++){
 								if(data[i].is_sel == 1){
 									var m = 'Unmark';
@@ -85,9 +86,11 @@
 												<tbody>\
 														<tr>\
 															<td class="species">\
-															<a href="browse.html?species='+data[i].c_chemicals+'">\
-																<img src="'data[i].c_img+'" style="width:120px;height:50px;"><br>\
-																<span>'+data[i].c_chemicals+'</span>\
+															<a href="browse.html?species='+data[i].c_chemicals+'">';																
+															if(data[i].c_img){															
+																h += '<img src="'+data[i].c_img+'" style="width:120px;height:50px;"><br>';
+															}
+															h += '<span>'+data[i].c_chemicals+'</span>\
 															</a>\
 															<form action="" method="post">\
 																<input value="'+data[i].c_chemicals+'" type="hidden" name="marks" checked="checked">\
