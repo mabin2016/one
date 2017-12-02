@@ -14,7 +14,7 @@ class MainModel extends Model {
 		$limit = "$page,$pageSize";
 		$totalRecord = M()->table(C('DB_PREFIX').'compound' )->where( $map )->count();
 		$return['total'] = $totalRecord;
-		$field = array('id','c_chemicals','c_name1','c_name2','c_cas','c_img');
+		$field = array("id","c_chemicals","ifnull(c_name1,'') as c_name1","ifnull(c_name2,'') as c_name2","ifnull(c_cas,'') as c_cas","ifnull(c_img,'') as c_img");
 		$data = M()->table(C('DB_PREFIX').'compound' )->field( $field )->where( $map )->limit( $limit )->select();
 		$return['data'] = $data;
 		return $return;
@@ -28,6 +28,28 @@ class MainModel extends Model {
 		$group = "id,r_reactant1,r_reactant2,r_reactant3,r_product1,r_product2,r_product3,r_document"; 
 		$data = M()->table(C('DB_PREFIX').'compound_reaction' )->where($map)->group($group)->select();
 		return $data;
+	}
+
+	/**
+	 * 取出反应物对应的图片
+	 * @return array
+	 */
+	public function getCompoundImg( $arr ) {
+		if(!$arr){
+			return array();
+		}
+		$where['c_chemicals'] = array('in',$arr);
+		$field = array('id','c_chemicals','c_img');
+		$data = M()->table(C('DB_PREFIX').'compound')->field($field)->where($where)->select();
+		if($data){
+			$tmp = array();
+			foreach($data as $k=>$v){
+				$tmp[$v['c_chemicals']] = $v['c_img'];
+			}
+		}else{
+			$tmp = $data;
+		}
+		return $tmp;
 	}
 
 	/**
@@ -105,7 +127,6 @@ class MainModel extends Model {
 				$resArr[$v] = $res;
 				//$resArr[] = $a;
 				//$res = $this->getData( $v,$a );
-				p($data);die;
 				foreach ($data as $v2){
 					$data = self::getReaction($v2,$resArr,$a);
 				}

@@ -91,8 +91,10 @@ return false;
 							<table class="speciesExpr">
 								<tbody><tr>
 									<td class="species">
-										<a>
-											<img src="__PUBLIC__/images/{{r_reactant1}}.png" style="width:80px;height:40px;"><br>
+										<a>				
+											{{#if (ne react_img1 null)}}
+												<img src="{{react_img1}}" style="width:80px;height:40px;"><br>
+											{{/if}}
 											{{r_reactant1}}
 										</a>
 										<input type="button" value="Mark" class="addMarks" tag="{{r_reactant1}}">
@@ -136,7 +138,9 @@ return false;
 												{{r_product1}}
 										{{else}}
 										<a href="browse.html?species={{r_product1}}">
-											<img src="__PUBLIC__/images/{{r_product1}}.png" width="150" height="50"><br>
+											{{#if (ne product_img1 null)}}
+												<img src="{{product_img1}}" width="150" height="50"><br>
+											{{/if}}
 											{{r_product1}}
 										</a>
 										<form action="#" method="post">
@@ -156,7 +160,9 @@ return false;
 												{{r_product2}}
 										{{else}}
 											<a href="browse.html?species={{r_product2}}">
-												<img src="__PUBLIC__/images/{{r_product2}}.png" width="150" height="50"><br>
+												{{#if (ne product_img2 null)}}
+													<img src="{{product_img2}}" width="150" height="50"><br>
+												{{/if}}
 												{{r_product2}}
 											</a>
 											<form action="#" method="post">
@@ -174,8 +180,10 @@ return false;
 													{{#if (eq p_3 0)}}
 														{{r_product3}}
 													{{else}}
-														<a href="browse.html?species={{r_product3}}">
-															<img src="__PUBLIC__/images/{{r_product3}}.png" width="150" height=50"><br>
+														<a href="browse.html?species={{r_product3}}">															
+															{{#if (ne product_img3 null)}}
+																<img src="{{product_img3}}" width="150" height="50"><br>
+															{{/if}}
 															{{r_product3}}
 														</a>
 														<form action="#" method="post">
@@ -190,9 +198,12 @@ return false;
 								</tbody></table>
 						</td>
 						<td>
-							<a href="__PUBLIC__/pdf/{{r_reactant1}}.pdf">
-								Doc.
-							</a>
+							{{#if (ne r_document null)}}
+								<a href="{{r_document}}">
+									Doc.
+								</a>
+							{{/if}}
+							
 						</td>
 					</tr>
 				{{/each}}

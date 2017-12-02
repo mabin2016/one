@@ -28,7 +28,11 @@ class MainController extends Controller {
                 }else{
                     $data['data'][$k]['is_sel'] = 0;
                 }
-                $data['data'][$k]['c_img'] = C('IMG_HTTP_DOMAIN').$v['c_img'];
+                if($v['c_img']){
+                	$data['data'][$k]['c_img'] = C('IMG_HTTP_DOMAIN').$v['c_img'];
+                }else{
+                	$data['data'][$k]['c_img'] = '';
+                }
             }
             $data['current_page'] = $page;
         }
@@ -46,12 +50,24 @@ class MainController extends Controller {
         }
         $data = $this->model->reactionList($map);
         $data2 = $this->model->getCompound($map2);
+        
+        //这里是过滤反应物
+		$react1 = array_column($data,'r_reactant1');
+		$react2 = array_column($data,'r_reactant2');
+		$react3 = array_column($data,'r_reactant3');
+		$tmp1 = array_unique(array_merge($react1,$react2));
+		$tmp1 = array_values(array_filter(array_unique(array_merge($tmp1,$react3))));
+        
+        //这里是过滤产物
 		$product1 = array_column($data,'r_product1');
 		$product2 = array_column($data,'r_product2');
 		$product3 = array_column($data,'r_product3');
 		$tmp = array_merge($product1,$product2);
-		$tmp = array_values(array_filter(array_merge($tmp,$product3)));
+		$tmp = array_values(array_filter(array_unique(array_merge($tmp,$product3))));
 		
+		$imgArr = array_filter(array_unique(array_merge($tmp1,$tmp)));
+        $dataImgArr = $this->model->getCompoundImg($imgArr);//取出反应物和产物对应的图片        
+        
         $loop_arr = $this->model->hasloop($tmp);//取出还有下一步反应的物质
         
         if(empty($loop_arr)){
@@ -76,17 +92,24 @@ class MainController extends Controller {
         		}else{
         			$v['p_3'] = 1;//显示链接点击
         		}
-        		$v['r_document'] = C('PDF_HTTP_DOMAIN').$v['r_document'];
-        	}
-        }
-        
-        if(!empty($data2)){
-        	foreach ($data2 as $k=>&$v){
-        		if(!empty($v['c_img'])){
-        			$v['c_img'] = C('IMG_HTTP_DOMAIN').$v['c_img'];
+        		if($v['r_document']){
+        			$v['r_document'] = C('PDF_HTTP_DOMAIN').$v['r_document'];
+        		}else{
+        			$v['r_document'] = null;
         		}
+        		$v['react_img1'] = $dataImgArr[$v['r_reactant1']] ? C('IMG_HTTP_DOMAIN').$dataImgArr[$v['r_reactant1']] : null;
+        		$v['react_img2'] = $dataImgArr[$v['r_reactant2']] ? C('IMG_HTTP_DOMAIN').$dataImgArr[$v['r_reactant2']] : null;
+        		$v['react_img3'] = $dataImgArr[$v['r_reactant3']] ? C('IMG_HTTP_DOMAIN').$dataImgArr[$v['r_reactant3']] : null;
+        		
+        		$v['product_img1'] = $dataImgArr[$v['r_product1']] ? C('IMG_HTTP_DOMAIN').$dataImgArr[$v['r_product1']] : null;
+        		$v['product_img2'] = $dataImgArr[$v['r_product2']] ? C('IMG_HTTP_DOMAIN').$dataImgArr[$v['r_product2']] : null;
+        		$v['product_img3'] = $dataImgArr[$v['r_product3']] ? C('IMG_HTTP_DOMAIN').$dataImgArr[$v['r_product3']] : null;
         	}
         }
+
+		if(!empty($data2['c_img'])){
+			$data2['c_img'] = C('IMG_HTTP_DOMAIN').$data2['c_img'];
+		}
         
         if(!empty($data)){
             $data = array('data'=>$data,'status'=>1);
